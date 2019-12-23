@@ -1,0 +1,267 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:10px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+/* COMMON */
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+input, select {
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 0.5rem 0.8rem;
+  -webkit-appearance: none;
+  -webkit-border-radius: 3px;
+}
+input[type="submit"] {
+  background-color: #344d81;
+  color: white;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 3rem;
+  margin-top: 1rem;
+  opacity: 1;
+}
+.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TOP HEADER */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #344d81;
+  color: #fff;
+  font-size: 1.4rem;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+}
+.header a {
+  color: inherit;
+}
+.header svg {
+  position: absolute;
+  left: 1rem;
+  height: 2rem;
+  top: 50%;
+  margin-top: -1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* CONTAINER */
+.container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+}
+.container.blue {
+    bottom: 50%;
+    background-color: #344e81;
+    z-index: 0;
+}
+
+.container.title {
+    flex-direction: column;
+}
+.container.title > * {
+    color: white;
+}
+.container.title h1 {
+    margin-bottom: 2rem;
+}
+.container.title h3 {
+    margin: 0;
+    line-height: 2;
+    font-weight: normal;
+}
+
+.container.link a {
+    border-radius: 3px;
+    font-size: 16px;
+    width: 120px;
+    height: 100px;
+    background-color: white;
+    color: #333;
+    border: none;
+    margin: 0 5px;
+    flex-direction: column;
+    text-decoration: none;
+    cursor: pointer;
+}
+.container.link svg {
+    margin-bottom: 10px;
+    font-size: 26px;
+}
+
+
+/* FORM CONTAINER */
+.form-container {
+  background-color: #fff;
+  position: absolute;
+  top: 6rem;
+  right: 1rem;
+  left: 1rem;
+  padding: 2rem;
+  border-radius: 3px;
+}
+.form-container ul li {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.form-container ul li label {
+  color: #888;
+  width: 5rem;
+  font-size: 0.9rem;
+}
+.form-container ul li label+input,
+.form-container ul li label+select {
+  box-sizing: border-box;
+  font-size: 1rem;
+  width: calc(100% - 5rem);
+}
+.form-container ul li select+svg {
+  position: absolute;
+  right: 0.5rem;
+}
+
+/* RESULT CONTAINER */
+.result-container {
+  background-color: #fff;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  left: 1rem;
+  bottom: 1rem;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.result-container > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.result-container svg {
+  font-size: 10rem;
+}
+.result-container svg#icon-success,
+#success-container a {
+  color: #52c41a;
+}
+.result-container svg#icon-failure,
+#failure-container a {
+  color: #f5222d;
+}
+.result-container h1 {
+  margin-top: 2rem;
+}
+.result-container table {
+  margin: 2rem;
+}
+.result-container table td {
+  font-size: 0.8rem;
+  word-break: break-all;
+  padding: 0 0.5rem;
+  line-height: 1.6;
+}
+.result-container table td:first-child {
+  white-space: pre;
+  color: #888;
+  vertical-align: top;
+}
+.result-container a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333;
+  border: 1px solid;
+  padding: 0.5rem 2rem;
+  border-radius: 3px;
+}

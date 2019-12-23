@@ -1,0 +1,19 @@
+{
+  "name": "iamport-cordova",
+  "version": "0.9.0",
+  "description": "",
+  "cordova": {
+    "id": "iamport-cordova",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Iamport Cordova Example</title>
+    </head>
+    <body>
+        <div class="header">
+          <a href="index.html">
+              <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="swap-left" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M872 572H266.8l144.3-183c4.1-5.2.4-13-6.3-13H340c-9.8 0-19.1 4.5-25.1 12.2l-164 208c-16.5 21-1.6 51.8 25.1 51.8h696c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z">
+                </path>
+            </svg>
+          </a>
+          결제 테스트
+        </div>
+        <div class="form-container">
+          <form id="iamport-payment" name="iamport-payment">
+            <ul>
+              <li>
+                <label for="pg">PG사</label>
+                <select name="pg" id="pg">
+                  <option value="html5_inicis">웹 표준 이니시스</option>
+                  <option value="kcp">KCP</option>
+                  <option value="kcp_billing">NHN KCP 정기결제</option>
+                  <option value="uplus">LG 유플러스</option>
+                  <option value="jtnet">JTNET</option>
+                  <option value="nice">나이스 정보통신</option>
+                  <option value="kakaopay">신 - 카카오페이</option>
+                  <option value="kakao">구 - LG CNS 카카오페이</option>
+                  <option value="danal">다날 휴대폰 소액결제</option>
+                  <option value="danal_tpay">다날 일반결제</option>
+                  <option value="kicc">한국정보통신</option>
+                  <option value="paypal">페이팔</option>
+                  <option value="mobilians">모빌리언스</option>
+                  <option value="payco">페이코</option>
+                  <option value="settle">세틀뱅크 가상계좌</option>
+                  <option value="naverco">네이버 체크아웃</option>
+                  <option value="naverpay">네이버페이</option>
+                  <option value="smilepay">스마일페이</option>
+                  <option value="chai">차이(CHAI)</option>
+                  <option value="payple">페이플(간편계좌)</option>
+                  <option value="alipay">알리페이</option>
+                </select>
+                <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                  <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">
+                  </path>
+                </svg>
+              </li>
+              <li>
+                <label for="pay_method">결제수단</label>
+                <select name="pay_method" id="pay_method">
+                  <option value="card">신용카드</option>
+                  <option value="vbank">가상계좌</option>
+                  <option value="trans">실시간 계좌이체</option>
+                  <option value="phone">휴대폰 소액결제</option>
+                  <option value="samsung">삼성페이</option>
+                  <option value="kapy">KPAY</option>
+                  <option value="cultureland">문화상품권</option>
+                  <option value="smartculture">스마트문상</option>
+                  <option value="happymoney">해피머니</option>
+                  <option value="booknlife">도서상품권</option>
+                </select>
+                <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                  <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">
+                  </path>
+                </svg>
+              </li>
+              <li>
+                <label for="name">주문명</label>
+                <input type="text" id="name" name="name" value="아임포트 코르도바 예제">
+              </li>
+              <li>
+                <label for="amount">결제금액</label>
+                <input type="number" id="amount" name="amount" value="1000">
+              </li>
+              <li>
+                <label for="merchant_uid">주문번호</label>
+                <input type="text" id="merchant_uid" name="merchant_uid">
+              </li>
+              <li>
+                <label for="buyer_name">이름</label>
+                <input type="text" id="buyer_name" name="buyer_name" value="홍길동">
+              </li>
+              <li>
+                <label for="buyer_tel">전화번호</label>
+                <input type="text" id="buyer_tel" name="buyer_tel" value="01012341234">
+              </li>
+              <li>
+                <label for="buyer_email">이메일</label>
+                <input type="text" id="buyer_email" name="buyer_email" value="example@example.com">
+              </li>
+              <li>
+                <input type="submit" value="결제하기">
+              </li>
+            </ul>
+          </form>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/payment.js"></script>
+    </body>
+</html>

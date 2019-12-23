@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Iamport Cordova Example</title>
+    </head>
+    <body>
+        <div class="header">
+          <a href="index.html">
+              <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="swap-left" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M872 572H266.8l144.3-183c4.1-5.2.4-13-6.3-13H340c-9.8 0-19.1 4.5-25.1 12.2l-164 208c-16.5 21-1.6 51.8 25.1 51.8h696c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z">
+                </path>
+            </svg>
+          </a>
+          본인인증 테스트
+        </div>
+        <div class="form-container">
+          <form id="iamport-certification" name="iamport-certification">
+            <ul>
+              <li>
+                <label for="carrier">통신사</label>
+                <select name="carrier" id="carrier">
+                  <option value="KTF">KT</option>
+                  <option value="SKT">SKT</option>
+                  <option value="LGT">LGU+</option>
+                  <option value="MVNO">알뜰폰</option>
+                </select>
+                <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                  <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">
+                  </path>
+                </svg>
+              </li>
+              <li>
+                <label for="merchant_uid">주문번호</label>
+                <input type="text" id="merchant_uid" name="merchant_uid">
+              </li>
+              <li>
+                <label for="company">회사명</label>
+                <input type="text" id="company" name="company" value="SIOT">
+              </li>
+              <li>
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" value="최소리">
+              </li>
+              <li>
+                <label for="phone">전화번호</label>
+                <input type="number" id="phone" name="phone" value="01065791337">
+              </li>
+              <li>
+                <label for="min_age">허용최소연령</label>
+                <input type="number" id="min_age" name="min_age">
+              </li>
+              <li>
+                <input type="submit" value="본인인증 하기">
+              </li>
+            </ul>
+          </form>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/certification.js"></script>
+    </body>
+</html>
