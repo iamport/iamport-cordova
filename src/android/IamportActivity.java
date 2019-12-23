@@ -8,14 +8,11 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.util.Log;
 
 import org.json.JSONObject;
 
-import kr.iamport.cordova.example.R;
 
 public class IamportActivity extends Activity {
     WebView webview;
@@ -31,7 +28,9 @@ public class IamportActivity extends Activity {
         Integer identifier = application.getResources().getIdentifier("iamport_activity", "layout", packageName);
         setContentView(identifier);
 
-        webview = (WebView) findViewById(R.id.webview);
+        int webViewId= getResources().getIdentifier("webview", "id", getPackageName());
+        webview = (WebView) findViewById(webViewId);
+
         WebSettings settings = webview.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
