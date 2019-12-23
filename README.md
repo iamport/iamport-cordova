@@ -11,7 +11,7 @@
 - 콜백 함수 설정하기
 
 ## 버전정보
-최신버전은 [v0.8.0](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
+최신버전은 [v0.8.1](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
 
 ## 지원정보
 아임포트 코르도바 플러그인은 안드로이드에서 결제 및 휴대폰 본인인증 기능을 제공합니다. **IOS 지원은 2020년 1월 중으로 업데이트 될 예정**입니다. 결제시 지원하는 PG사와 결제수단에 대한 자세한 정보는 [지원정보](manuals/SUPPORT.md)를 참고하세요. 
@@ -49,7 +49,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
   };
   var userCode = 'iamport';                       // 가맹점 식별코드
   var data = {
-    pg: 'html5_inicis'                            // PG사
+    pg: 'html5_inicis',                           // PG사
     pay_method: 'card',                           // 결제수단
     name: '아임포트 코르도바 테스트',                   // 주문명
     merchant_uid: 'mid_' + new Date().getTime(),  // 주문번호

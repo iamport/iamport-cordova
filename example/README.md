@@ -45,7 +45,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
   };
   var userCode = 'iamport';                       // 가맹점 식별코드
   var data = {
-    pg: 'html5_inicis'                            // PG사
+    pg: 'html5_inicis',                           // PG사
     pay_method: 'card',                           // 결제수단
     name: '아임포트 코르도바 테스트',                   // 주문명
     merchant_uid: 'mid_' + new Date().getTime(),  // 주문번호
