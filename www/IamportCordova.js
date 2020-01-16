@@ -17,25 +17,34 @@ var iamport = function(type, params) {
   /* 결제/본인인증 데이터 설정 */
   var iamportData = {
     userCode: userCode,
-    data: Object.assign({}, data, { m_redirect_url: REDIRECT_URL }),
+    data: Object.assign({}, data, { m_redirect_url: REDIRECT_URL, niceMobileV2: true }),
     triggerCallback: triggerCallback.toString(),
     redirectUrl: REDIRECT_URL,
   };
 
   var successCallback = function(url) {
     if (url.indexOf(REDIRECT_URL) == 0) {
-      var query = url.substring(REDIRECT_URL.length + 1); // [REDIRECT_URL]? 이후로 자름
+      var decodedUrl = decodeURIComponent(url);
+      var query = decodedUrl.substring(REDIRECT_URL.length + 1); // [REDIRECT_URL]? 이후로 자름
       var parsedQuery = parseQuery(query);
-
-      var imp_success = Object.keys(parsedQuery).indexOf('imp_success') == -1 ? parsedQuery.success : parsedQuery.imp_success;
-      var response = {
-        imp_success: imp_success,
-        imp_uid: parsedQuery.imp_uid,
-        merchant_uid: parsedQuery.merchant_uid,
-        error_code: parsedQuery.error_code,
-        error_msg: parsedQuery.error_msg,
-      };
-      callback(response);
+      if (device.platform == 'iOS' && type == 'inicis') {
+        var { imp_uid, merchant_uid } = parsedQuery;
+        var response = {
+          imp_uid,
+          merchant_uid: typeof merchant_uid === 'object' ? merchant_uid[0] : merchant_uid,
+        };
+        callback(response);
+      } else {
+        var imp_success = Object.keys(parsedQuery).indexOf('imp_success') == -1 ? parsedQuery.success : parsedQuery.imp_success;
+        var response = {
+          imp_success: imp_success,
+          imp_uid: parsedQuery.imp_uid,
+          merchant_uid: parsedQuery.merchant_uid,
+          error_code: parsedQuery.error_code,
+          error_msg: parsedQuery.error_msg,
+        };
+        callback(response);
+      }
     }
   };
 

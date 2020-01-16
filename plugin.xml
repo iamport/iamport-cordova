@@ -8,7 +8,10 @@
   <name>IamportCordova</name>
 
   <!-- TODO-->
-  <preference name="URL_SCHEME" default="example" />
+  <preference name="URL_SCHEME" />
+
+  <!-- DEPENDENCIES -->
+  <dependency id="cordova-plugin-device"/>
 
   <!-- 웹뷰 소스 파일 -->
   <asset src="www/iamport-webview.html" target="iamport-webview.html"></asset>
@@ -51,11 +54,18 @@
       </feature>
     </config-file>
     <source-file src="src/ios/IamportCordova.m" />
+    <source-file src="src/ios/IamportCordova.h" />
     <header-file src="src/ios/IamportViewController.h" />
     <source-file src="src/ios/IamportViewController.m" />
+    <source-file src="src/ios/IamportPaymentViewController.h" />
+    <source-file src="src/ios/IamportPaymentViewController.m" />
+    <source-file src="src/ios/IamportInicisViewController.h" />
+    <source-file src="src/ios/IamportInicisViewController.m" />
+    <source-file src="src/ios/IamportNiceViewController.h" />
+    <source-file src="src/ios/IamportNiceViewController.m" />
     <source-file src="src/ios/IamportCertificationViewController.h" />
     <source-file src="src/ios/IamportCertificationViewController.m" />
-    <!-- <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+    <config-file target="*-Info.plist" parent="CFBundleURLTypes">
       <array>
         <dict>
           <key>CFBundleURLName</key>
@@ -66,7 +76,7 @@
           </array>
         </dict>
       </array>
-    </config-file> -->
+    </config-file>
     <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
       <array>
         <string>kftc-bankpay</string> <!-- 계좌이체 -->

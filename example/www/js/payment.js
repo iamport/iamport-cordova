@@ -38,7 +38,7 @@ document.getElementById('iamport-payment').addEventListener('submit', function(e
     userCode: userCode,
     data: data,
     callback: callback,
-  }
+  };
   cordova.plugins.IamportCordova.payment(params);
 });
 
