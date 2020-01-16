@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin
   id="iamport-cordova"
-  version="0.9.1"
+  version="0.9.2"
   xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
 >
   <name>IamportCordova</name>
 
   <!-- TODO-->
-  <preference name="URL_SCHEME" />
+  <!-- <preference name="URL_SCHEME" /> -->
 
   <!-- DEPENDENCIES -->
   <dependency id="cordova-plugin-device"/>
@@ -65,7 +65,7 @@
     <source-file src="src/ios/IamportNiceViewController.m" />
     <source-file src="src/ios/IamportCertificationViewController.h" />
     <source-file src="src/ios/IamportCertificationViewController.m" />
-    <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+    <!-- <config-file target="*-Info.plist" parent="CFBundleURLTypes">
       <array>
         <dict>
           <key>CFBundleURLName</key>
@@ -76,7 +76,7 @@
           </array>
         </dict>
       </array>
-    </config-file>
+    </config-file> -->
     <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
       <array>
         <string>kftc-bankpay</string> <!-- 계좌이체 -->
