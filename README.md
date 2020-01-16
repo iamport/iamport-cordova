@@ -7,14 +7,15 @@
 - [버전정보](manuals/VERSION.md)
 - [지원정보](manuals/SUPPORT.md)
 - 설치하기
+- IOS 설정하기
 - [예제](example/README.md)
 - 콜백 함수 설정하기
 
 ## 버전정보
-최신버전은 [v0.9.1](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
+최신버전은 [v0.9.2](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
 
 ## 지원정보
-아임포트 코르도바 플러그인은 안드로이드에서 결제 및 휴대폰 본인인증 기능을 제공합니다. **IOS 지원은 2020년 1월 중으로 업데이트 될 예정**입니다. 결제시 지원하는 PG사와 결제수단에 대한 자세한 정보는 [지원정보](manuals/SUPPORT.md)를 참고하세요. 
+아임포트 코르도바 플러그인은 안드로이드와 IOS에서 결제 및 휴대폰 본인인증 기능을 제공합니다. 결제시 지원하는 PG사와 결제수단에 대한 자세한 정보는 [지원정보](manuals/SUPPORT.md)를 참고하세요. 
 
 ## 설치하기
 아래 명령어를 통해 아임포트 코르도바 플러그인을 귀하의 코르도바 프로젝트에 추가할 수 있습니다.
@@ -23,6 +24,28 @@
 $ cordova plugin add iamport-cordova
 ```
 
+## IOS 설정하기
+IOS에서는 **외부 앱 이동 후 복귀를 위해 커스텀 앱 URL Scheme값을 반드시 지정해야** 합니다. 자세한 내용은 [App Scheme 등록](https://github.com/iamport/iamport-react-native/blob/HEAD/manuals/SETTING.md#1-app-scheme-%EB%93%B1%EB%A1%9D)을 참고하세요.
+
+설정된 결과는 아래와 같습니다.
+
+```html
+// [프로젝트이름]/platforms/ios/[프로젝트이름]/프로젝트이름-info.plist 파일
+...
+<key>CFBundleURLTypes</key>
+<array>
+  <dict>
+    <key>CFBundleURLName</key>
+    <string/>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <!-- 예) 커스텀 앱 URL Scheme을 example로 설정 -->
+      <string>example</string>
+    </array>
+  </dict>
+</array>
+...
+```
 
 ## 예제
 아임포트 코르도바 플러그인을 사용해 아래와 같이 일반/정기결제 및 휴대폰 본인인증 기능을 구현할 수 있습니다. 필요한 파라미터는 [예제](example/README.md)를 참고하세요.

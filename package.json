@@ -1,6 +1,6 @@
 {
   "name": "iamport-cordova",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "아임포트 코르도바용 일반, 정기결제 및 휴대폰 본인인증 플러그인입니다.",
   "cordova": {
     "id": "iamport-cordova",
@@ -23,5 +23,10 @@
     "email": "mymusese@gmail.com",
     "url": "https://github.com/SoleeChoi"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/iamport/iamport-cordova",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamport/iamport-cordova"
+  }
 }
