@@ -9,6 +9,9 @@
 }
 
 - (void)startActivity: (CDVInvokedUrlCommand*)command;
+- (BOOL)isNavigationBarHidden:(NSDictionary *)titleData;
+- (UIColor *)colorFromHexString:(NSString *)hexString;
+- (void)onClose;
 - (void)setDelegate:(id<IamportDelegate>)delegate;
 - (void)onOver:(NSString*)url callbackId:(NSString*)callbackId commandDelegate:(id<CDVCommandDelegate>)commandDelegate;
 
