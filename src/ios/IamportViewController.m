@@ -14,6 +14,7 @@
     if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDidReceiveData:) name:CDVPluginHandleOpenURLNotification object:nil];
     }
+    
     return self;
 }
 
@@ -53,6 +54,12 @@
         _webView.delegate = nil;
         _webView = nil;
        
+        
+        /*
+         Notification 해제
+         */
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:CDVPluginHandleOpenURLNotification object:nil];
+        
         /*
          delegate 메소드 호출
          */
