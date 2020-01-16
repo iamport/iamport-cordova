@@ -1,9 +1,15 @@
 #import <Cordova/CDV.h>
+#import <Cordova/CDVCommandDelegate.h>
+
+@protocol IamportDelegate <NSObject>
+@end
 
 @interface IamportCordova : CDVPlugin {
-  // Member variables go here.
+    id <IamportDelegate> _delegate;
 }
 
-- (void)coolMethod:(CDVInvokedUrlCommand*)command;
 - (void)startActivity: (CDVInvokedUrlCommand*)command;
+- (void)setDelegate:(id<IamportDelegate>)delegate;
+- (void)onOver:(NSString*)url callbackId:(NSString*)callbackId commandDelegate:(id<CDVCommandDelegate>)commandDelegate;
+
 @end

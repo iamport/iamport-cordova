@@ -9,14 +9,14 @@
 
 @implementation IamportCertificationViewController: IamportViewController
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"url: %@", @"webVIewDidFinishLoad");
-    if (super.isWebViewLoaded == NO) {
-        NSLog(@"url: %@", @"isWebViewLoaded");
-        [super.webView stringByEvaluatingJavaScriptFromString:@"IMP.init('imp10391932');"];
-        [super.webView stringByEvaluatingJavaScriptFromString:@"IMP.certification({ 'amount': '1000' });"];
-        super.isWebViewLoaded = YES;
-    }
+- (void)showIframe: (NSString*)userCode data:(NSString*)data triggerCallback:(NSString*)triggerCallback
+{
+    NSString *initCommand = [NSString stringWithFormat: @"IMP.init('%@');", userCode];
+    NSString *requestCommand = [NSString stringWithFormat: @"IMP.certification(%@, %@);", data, triggerCallback];
+    
+    UIWebView* webView = [self valueForKey:@"webView"];
+    [webView stringByEvaluatingJavaScriptFromString:initCommand];
+    [webView stringByEvaluatingJavaScriptFromString:requestCommand];
 }
 
 @end
