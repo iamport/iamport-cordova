@@ -24,8 +24,10 @@
 
     _isWebViewLoaded = NO;
 
-    _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    _webView.delegate = self;
+    _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    _webView.UIDelegate = self;
+    _webView.navigationDelegate = self;
+
     self.view = _webView;
     
     _delegate = [[IamportCordova alloc] init];
@@ -41,9 +43,9 @@
     [_webView loadHTMLString:htmlString baseURL:[[NSBundle mainBundle] bundleURL]];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(nonnull WKNavigationAction *)navigationAction decisionHandler:(nonnull void (^)(WKNavigationActionPolicy))decisionHandler
 {
-    NSString *url = request.URL.absoluteString;
+    NSString *url = navigationAction.request.URL.absoluteString;
     
     if ([self isOver:url]) { // 결제완료
         /*
@@ -51,7 +53,9 @@
          */
         [_webView stopLoading];
         [_webView removeFromSuperview];
-        _webView.delegate = nil;
+        _webView.UIDelegate = nil;
+        _webView.navigationDelegate = nil;
+        
         _webView = nil;
        
         
@@ -66,27 +70,26 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         [_delegate onOver:url callbackId:_callbackId commandDelegate:_commandDelegate];
         
-        return NO;
-    }
-    
-    if ([self isUrlStartsWithAppScheme:url]) { // 외부 앱 호출
+        decisionHandler(WKNavigationActionPolicyCancel);
+    } else if ([self isUrlStartsWithAppScheme:url]) { // 외부 앱 호출
         [self openThirdPartyApp:url];
-        return NO;
+        
+        decisionHandler(WKNavigationActionPolicyCancel);
+    } else {
+        decisionHandler(WKNavigationActionPolicyAllow);
     }
-    
-    return YES;
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation
 {
-    if (_isWebViewLoaded == NO) {
-        NSString* userCode = [_params valueForKey:@"userCode"];
-        NSString* data = [self toJsonString:[_params valueForKey:@"data"]];
-        NSString* triggerCallback = [_params valueForKey:@"triggerCallback"];
-        [self showIframe: userCode data:data triggerCallback:triggerCallback];
-        
-        _isWebViewLoaded = YES;
-    }
+        if (_isWebViewLoaded == NO) {
+            NSString* userCode = [_params valueForKey:@"userCode"];
+            NSString* data = [self toJsonString:[_params valueForKey:@"data"]];
+            NSString* triggerCallback = [_params valueForKey:@"triggerCallback"];
+            [self showIframe: userCode data:data triggerCallback:triggerCallback];
+            
+            _isWebViewLoaded = YES;
+        }
 }
 
 - (void)onDidReceiveData:(NSNotification *)notification

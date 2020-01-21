@@ -10,9 +10,10 @@
     NSObject *params = [self valueForKey:@"params"];
     NSString *redirectUrl = [params valueForKey:@"redirectUrl"];
  
-    UIWebView* webView = [self valueForKey:@"webView"];
+    WKWebView* webView = [self valueForKey:@"webView"];
     NSString *requestCommand = [NSString stringWithFormat: @"window.location.href = '%@?%@';", redirectUrl, query];
-    [webView stringByEvaluatingJavaScriptFromString:requestCommand];
+    
+    [webView evaluateJavaScript:requestCommand completionHandler: nil];
 }
 
 @end

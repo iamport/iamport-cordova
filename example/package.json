@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "sync": "npm run sync-ios && npm run sync-android",
     "sync-ios": "npm run uninstall-ios && npm run install-ios",
     "sync-android": "npm run uninstall-android && npm run install-android",
     "install-ios": "cordova platform add ios && plugman install --platform ios --project platforms/ios --plugin ../../IamportCordova --link",

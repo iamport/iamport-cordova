@@ -38,7 +38,7 @@
     [request setHTTPMethod: @"POST"];
     [request setHTTPBody: [bodyString dataUsingEncoding: NSUTF8StringEncoding]];
     
-    UIWebView* webView = [self valueForKey:@"webView"];
+    WKWebView* webView = [self valueForKey:@"webView"];
     [webView loadRequest: request];
 }
 

@@ -6,13 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 #import <Cordova/CDVCommandDelegate.h>
 #import "IamportCordova.h"
 
-@interface IamportViewController: UIViewController<UIWebViewDelegate, IamportDelegate>
+@interface IamportViewController: UIViewController<WKUIDelegate, WKNavigationDelegate, IamportDelegate>
 
 @property () IamportCordova* delegate;
-@property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet WKWebView *webView;
 @property () BOOL isWebViewLoaded;
 @property (strong, nonatomic) NSString *callbackId;
 @property (nonatomic, weak) id <CDVCommandDelegate> commandDelegate;
