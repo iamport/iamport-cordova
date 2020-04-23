@@ -13,7 +13,7 @@
 - (void)startActivity: (CDVInvokedUrlCommand*)command
 {
     NSString* type = [command.arguments objectAtIndex:0];
-    NSDictionary* titleData = [command.arguments objectAtIndex:1];
+    NSDictionary* titleOptions = [command.arguments objectAtIndex:1];
     NSObject* params = [command.arguments objectAtIndex:2];
     
     IamportViewController *iamportViewController = nil;
@@ -28,7 +28,6 @@
     }
 
     iamportViewController.type = type;
-    iamportViewController.titleData = titleData;
     iamportViewController.params = params;
     /*
      delegate 메소드에 전달
@@ -37,30 +36,50 @@
     iamportViewController.callbackId = command.callbackId;
     iamportViewController.commandDelegate = self.commandDelegate;
     
-    if ([self isNavigationBarHidden:titleData]) {
-        [self.viewController presentViewController:iamportViewController animated:YES completion:nil];
-    } else {
-        /*
-         NavigationController 설정
-         */
+    NSString *show = [titleOptions valueForKey:@"show"];
+    if ([show isEqual:@"true"]) {
+        // NavigationController 설정
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:iamportViewController];
         
-        NSString *name = [titleData valueForKey:@"name"];
-        NSString *color = [titleData valueForKey:@"color"];
-        UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(onClose)];
+        NSString *text = [titleOptions valueForKey:@"text"];
+        NSString *textColor = [titleOptions valueForKey:@"textColor"];
+        NSString *backgroundColor = [titleOptions valueForKey:@"backgroundColor"];
+        NSString *leftButtonType = [titleOptions valueForKey:@"leftButtonType"];
+        NSString *leftButtonColor = [titleOptions valueForKey:@"leftButtonColor"];
+        NSString *rightButtonType = [titleOptions valueForKey:@"rightButtonType"];
+        NSString *rightButtonColor = [titleOptions valueForKey:@"rightButtonColor"];
         
-        navigationController.navigationBar.topItem.title = name;
+        navigationController.navigationBar.topItem.title = text;
         navigationController.navigationBar.translucent = NO;
-        navigationController.navigationBar.barTintColor = [self colorFromHexString:color];
-        navigationController.navigationBar.topItem.rightBarButtonItem = closeButton;
+        navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[self colorFromHexString:textColor] forKey:NSForegroundColorAttributeName];
+        navigationController.navigationBar.barTintColor = [self colorFromHexString:backgroundColor];
+        
+        if (![leftButtonType isEqualToString:@"hide"]) {
+            navigationController.navigationBar.topItem.leftBarButtonItem = [self getBarButtonItem:leftButtonType];
+            navigationController.navigationBar.topItem.leftBarButtonItem.tintColor = [self colorFromHexString:leftButtonColor];
+        }
+        if (![rightButtonType isEqualToString:@"hide"]) {
+            navigationController.navigationBar.topItem.rightBarButtonItem = [self getBarButtonItem:rightButtonType];
+            navigationController.navigationBar.topItem.rightBarButtonItem.tintColor = [self colorFromHexString:rightButtonColor];
+        }
 
         [self.viewController presentViewController:navigationController animated:YES completion:nil];
+    } else {
+        [self.viewController presentViewController:iamportViewController animated:YES completion:nil];
     }
 }
 
-- (BOOL)isNavigationBarHidden:(NSDictionary *)titleData
+- (UIBarButtonItem *)getBarButtonItem:(NSString *)buttonType
 {
-    return [titleData count] == 0;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onClose)];
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(onClose)];
+    if ([buttonType isEqualToString:@"back"]) {
+        return backButton;
+    }
+    if ([buttonType isEqualToString:@"close"]) {
+        return closeButton;
+    }
+    return nil;
 }
 
 - (UIColor *)colorFromHexString:(NSString *)hexString

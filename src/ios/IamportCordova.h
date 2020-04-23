@@ -9,7 +9,7 @@
 }
 
 - (void)startActivity: (CDVInvokedUrlCommand*)command;
-- (BOOL)isNavigationBarHidden:(NSDictionary *)titleData;
+- (UIBarButtonItem *)getBarButtonItem:(NSString *)buttonType;
 - (UIColor *)colorFromHexString:(NSString *)hexString;
 - (void)onClose;
 - (void)setDelegate:(id<IamportDelegate>)delegate;

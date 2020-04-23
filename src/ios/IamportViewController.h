@@ -18,7 +18,6 @@
 @property (strong, nonatomic) NSString *callbackId;
 @property (nonatomic, weak) id <CDVCommandDelegate> commandDelegate;
 @property (strong, nonatomic) NSString *type;
-@property (strong, nonatomic) NSObject *titleData;
 @property (strong, nonatomic) NSObject *params;
 
 - (id) init;
