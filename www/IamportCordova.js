@@ -13,6 +13,8 @@ var iamport = function(type, params) {
     titleData.text = titleOptions.text || '아임포트 코르도바 예제',
     titleData.show = [true, false].indexOf(titleOptions.show) === -1 ? 'true' : titleOptions.show.toString(),
     titleData.textColor = titleOptions.textColor || '#ffffff';
+    titleData.textSize = titleOptions.textSize || '20';
+    titleData.textAlignment = titleOptions.textAlignment || 'left';
     titleData.backgroundColor = titleOptions.backgroundColor || '#344e81';
     titleData.leftButtonType = titleOptions.leftButtonType || 'back';
     titleData.leftButtonColor = titleOptions.leftButtonColor || titleData.textColor;

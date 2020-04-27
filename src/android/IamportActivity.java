@@ -10,15 +10,18 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.service.autofill.TextValueSanitizer;
 import android.text.Html;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.TextView;
 
 import org.json.JSONObject;
-
-import kr.iamport.cordova.example.R;
 
 public class IamportActivity extends Activity {
     Application application;
@@ -27,6 +30,8 @@ public class IamportActivity extends Activity {
     WebView webview;
     IamportWebViewClient webViewClient;
     String titleOptions;
+    int actionCloseItemId;
+    int actionBackItemId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,9 @@ public class IamportActivity extends Activity {
         application = getApplication();
         packageName = application.getPackageName();
         resources = application.getResources();
+
+        actionCloseItemId = resources.getIdentifier("action_close", "id", packageName);
+        actionBackItemId = resources.getIdentifier("action_back", "id", packageName);
 
         Integer identifier = resources.getIdentifier("iamport_activity", "layout", packageName);
         setContentView(identifier);
@@ -84,9 +92,20 @@ public class IamportActivity extends Activity {
             if (show.equals("true")) {
                 String text = titleObj.getString("text");
                 String textColor= titleObj.getString("textColor");
+                Float textSize= Float.parseFloat(titleObj.getString("textSize"));
+                String textAlignment = titleObj.getString("textAlignment");
                 String backgroundColor = titleObj.getString("backgroundColor");
 
-                ab.setTitle(Html.fromHtml("<font color='" + textColor + "'>" + text + "</font>"));
+                ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+                ab.setCustomView(resources.getIdentifier("iamport_actionbar", "layout", packageName));
+
+                TextView title = (TextView)findViewById(resources.getIdentifier("action_bar_title", "id", packageName));
+                title.setText(text);
+                title.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+
+                title.setTextColor(Color.parseColor(textColor));
+                title.setTextAlignment(getActionBarTitleAlignment(textAlignment));
+
                 ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor(backgroundColor)));
 
                 String leftButtonColor = titleObj.getString("leftButtonColor");
@@ -103,6 +122,18 @@ public class IamportActivity extends Activity {
                 ab.hide();
             }
         } catch (Exception e) {
+
+        }
+    }
+
+    private int getActionBarTitleAlignment(String textAlignment) {
+        switch (textAlignment) {
+            case "center":
+                return View.TEXT_ALIGNMENT_CENTER;
+            case "right":
+                return View.TEXT_ALIGNMENT_TEXT_END;
+            default:
+                return View.TEXT_ALIGNMENT_VIEW_START;
 
         }
     }
@@ -158,7 +189,7 @@ public class IamportActivity extends Activity {
                 break;
             }
             default: {
-                if (itemId.equals(R.id.action_close)) {
+                if (itemId.equals(actionBackItemId) || itemId.equals(actionCloseItemId)) {
                     finish();
                 }
                 break;
@@ -170,15 +201,15 @@ public class IamportActivity extends Activity {
 
     private int getLeftIconId(String buttonType) {
         if (buttonType.equals("back")) {
-            return R.drawable.ic_action_back;
+            return resources.getIdentifier("ic_action_back", "drawable", packageName);
         }
-        return R.drawable.ic_action_close;
+        return resources.getIdentifier("ic_action_close", "drawable", packageName);
     }
 
     private int getRightIconId(String buttonType) {
         if (buttonType.equals("back")) {
-            return R.id.action_back;
+            return actionBackItemId;
         }
-        return R.id.action_close;
+        return actionCloseItemId;
     }
 }

@@ -37,6 +37,7 @@
       </activity>
     </config-file>
     <source-file src="src/android/iamport_activity.xml" target-dir="res/layout" />
+    <source-file src="src/android/iamport_actionbar.xml" target-dir="res/layout" />
     <source-file src="src/android/iamport_actionbar_actions.xml" target-dir="res/menu" />
     <source-file src="src/android/drawable-anydpi" target-dir="res" />
     <source-file src="src/android/drawable-hdpi" target-dir="res" />
