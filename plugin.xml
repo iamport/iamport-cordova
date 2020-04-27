@@ -60,6 +60,7 @@
         <param name="ios-package" value="IamportCordova" />
       </feature>
     </config-file>
+    <source-file src="src/ios/arrow-back.png" />
     <source-file src="src/ios/IamportCordova.m" />
     <source-file src="src/ios/IamportCordova.h" />
     <header-file src="src/ios/IamportViewController.h" />

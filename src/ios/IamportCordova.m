@@ -40,27 +40,39 @@
     if ([show isEqual:@"true"]) {
         // NavigationController 설정
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:iamportViewController];
+        UINavigationBar *navigationBar = navigationController.navigationBar;
         
         NSString *text = [titleOptions valueForKey:@"text"];
         NSString *textColor = [titleOptions valueForKey:@"textColor"];
+        double textSize = [[titleOptions valueForKey:@"textSize"] doubleValue];
+        NSString *textAlignment = [titleOptions valueForKey:@"textAlignment"];
         NSString *backgroundColor = [titleOptions valueForKey:@"backgroundColor"];
         NSString *leftButtonType = [titleOptions valueForKey:@"leftButtonType"];
         NSString *leftButtonColor = [titleOptions valueForKey:@"leftButtonColor"];
         NSString *rightButtonType = [titleOptions valueForKey:@"rightButtonType"];
         NSString *rightButtonColor = [titleOptions valueForKey:@"rightButtonColor"];
         
-        navigationController.navigationBar.topItem.title = text;
-        navigationController.navigationBar.translucent = NO;
-        navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[self colorFromHexString:textColor] forKey:NSForegroundColorAttributeName];
-        navigationController.navigationBar.barTintColor = [self colorFromHexString:backgroundColor];
+        CGRect titleRect = iamportViewController.view.frame;
+        UILabel *titleView = [[UILabel alloc] initWithFrame:titleRect];
+        titleView.text = text;
+        titleView.font = [UIFont systemFontOfSize:textSize];
+        titleView.textAlignment = [self getTextAlignment:textAlignment];
+        titleView.textColor = [self colorFromHexString:textColor];
+        titleView.backgroundColor = [UIColor clearColor];
+        navigationBar.topItem.titleView = titleView;
+        
+        navigationBar.translucent = NO;
+        navigationBar.barTintColor = [self colorFromHexString:backgroundColor];
+        
+        [UIImage imageNamed:@"icon"];
         
         if (![leftButtonType isEqualToString:@"hide"]) {
-            navigationController.navigationBar.topItem.leftBarButtonItem = [self getBarButtonItem:leftButtonType];
-            navigationController.navigationBar.topItem.leftBarButtonItem.tintColor = [self colorFromHexString:leftButtonColor];
+            navigationBar.topItem.leftBarButtonItem = [self getBarButtonItem:leftButtonType];
+            navigationBar.topItem.leftBarButtonItem.tintColor = [self colorFromHexString:leftButtonColor];
         }
         if (![rightButtonType isEqualToString:@"hide"]) {
-            navigationController.navigationBar.topItem.rightBarButtonItem = [self getBarButtonItem:rightButtonType];
-            navigationController.navigationBar.topItem.rightBarButtonItem.tintColor = [self colorFromHexString:rightButtonColor];
+            navigationBar.topItem.rightBarButtonItem = [self getBarButtonItem:rightButtonType];
+            navigationBar.topItem.rightBarButtonItem.tintColor = [self colorFromHexString:rightButtonColor];
         }
 
         [self.viewController presentViewController:navigationController animated:YES completion:nil];
@@ -69,10 +81,22 @@
     }
 }
 
+- (NSTextAlignment)getTextAlignment:(NSString *)textAlignment
+{
+    if ([textAlignment isEqualToString:@"center"]) {
+        return NSTextAlignmentCenter;
+    }
+    if ([textAlignment isEqualToString:@"right"]) {
+        return NSTextAlignmentRight;
+    }
+    return NSTextAlignmentLeft;
+}
+
 - (UIBarButtonItem *)getBarButtonItem:(NSString *)buttonType
 {
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onClose)];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"arrow-back.png"] style:UIBarButtonItemStyleDone target:self action:@selector(onClose)];
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(onClose)];
+
     if ([buttonType isEqualToString:@"back"]) {
         return backButton;
     }
