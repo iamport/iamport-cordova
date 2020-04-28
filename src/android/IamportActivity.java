@@ -10,15 +10,13 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.service.autofill.TextValueSanitizer;
-import android.text.Html;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import org.json.JSONObject;
@@ -104,6 +102,7 @@ public class IamportActivity extends Activity {
                 title.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
 
                 title.setTextColor(Color.parseColor(textColor));
+
                 title.setTextAlignment(getActionBarTitleAlignment(textAlignment));
 
                 ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor(backgroundColor)));
@@ -117,6 +116,20 @@ public class IamportActivity extends Activity {
                     final Drawable closeIcon = getResources().getDrawable(iconId);
                     closeIcon.setColorFilter(Color.parseColor(leftButtonColor), PorterDuff.Mode.SRC_IN);
                     ab.setHomeAsUpIndicator(closeIcon);
+                }
+
+                String rightButtonType = titleObj.getString("rightButtonType");
+                if (textAlignment.equals("center")) {
+                    LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                    boolean isLeftButtonHidden = leftButtonType.equals("hide");
+                    boolean isRightButtonHidden = rightButtonType.equals("hide");
+                    if (isLeftButtonHidden && !isRightButtonHidden) {
+                        layoutParams.setMarginStart(120);
+                    }
+                    if (!isLeftButtonHidden && isRightButtonHidden) {
+                        layoutParams.setMarginEnd(120);
+                    }
+                    title.setLayoutParams(layoutParams);
                 }
             } else {
                 ab.hide();
@@ -169,9 +182,9 @@ public class IamportActivity extends Activity {
             getMenuInflater().inflate(menuId, menu);
             if (!rightButtonType.equals("hide")) {
                 int iconId = getRightIconId(rightButtonType);
-                MenuItem meniItem = menu.findItem(iconId);
-                meniItem.setVisible(true);
-                meniItem.getIcon().setColorFilter(Color.parseColor(rightButtonColor), PorterDuff.Mode.SRC_IN);
+                MenuItem menuItem = menu.findItem(iconId);
+                menuItem.setVisible(true);
+                menuItem.getIcon().setColorFilter(Color.parseColor(rightButtonColor), PorterDuff.Mode.SRC_IN);
             }
         } catch (Exception e) {
 
