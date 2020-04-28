@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin
   id="iamport-cordova"
-  version="0.9.3"
+  version="0.9.4"
   xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
 >
@@ -37,6 +37,13 @@
       </activity>
     </config-file>
     <source-file src="src/android/iamport_activity.xml" target-dir="res/layout" />
+    <source-file src="src/android/iamport_actionbar.xml" target-dir="res/layout" />
+    <source-file src="src/android/iamport_actionbar_actions.xml" target-dir="res/menu" />
+    <source-file src="src/android/drawable-anydpi" target-dir="res" />
+    <source-file src="src/android/drawable-hdpi" target-dir="res" />
+    <source-file src="src/android/drawable-mdpi" target-dir="res" />
+    <source-file src="src/android/drawable-xhdpi" target-dir="res" />
+    <source-file src="src/android/drawable-xxhdpi" target-dir="res" />
     <source-file src="src/android/IamportCordova.java" target-dir="src/kr/iamport/cordova" />
     <source-file src="src/android/IamportActivity.java" target-dir="src/kr/iamport/cordova" />
     <source-file src="src/android/IamportWebViewClient.java" target-dir="src/kr/iamport/cordova" />
@@ -53,6 +60,7 @@
         <param name="ios-package" value="IamportCordova" />
       </feature>
     </config-file>
+    <source-file src="src/ios/arrow-back.png" />
     <source-file src="src/ios/IamportCordova.m" />
     <source-file src="src/ios/IamportCordova.h" />
     <header-file src="src/ios/IamportViewController.h" />

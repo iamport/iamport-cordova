@@ -36,6 +36,7 @@
     NSString *bodyString = [NSString stringWithFormat: @"callbackparam2=%@&bankpay_code=%@&bankpay_value=%@", _userKey, bankpaycode, bankpayvalue];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: [NSURL URLWithString:niceTransRedirectionUrl]];
     [request setHTTPMethod: @"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody: [bodyString dataUsingEncoding: NSUTF8StringEncoding]];
     
     WKWebView* webView = [self valueForKey:@"webView"];

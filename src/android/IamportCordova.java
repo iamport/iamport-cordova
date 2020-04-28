@@ -36,10 +36,10 @@ public class IamportCordova extends CordovaPlugin {
             intent = new Intent(cordova.getActivity().getApplicationContext(), IamportActivity.class);
 
             String type = args.getString(0);;
-            JSONObject title = args.getJSONObject(1);;
+            JSONObject titleOptions = args.getJSONObject(1);;
             JSONObject params = args.getJSONObject(2);;
             intent.putExtra("type", type);
-            intent.putExtra("title", title.toString());
+            intent.putExtra("titleOptions", titleOptions.toString());
             intent.putExtra("params", params.toString());
 
             cordova.setActivityResultCallback(this);

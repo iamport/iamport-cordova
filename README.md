@@ -12,7 +12,7 @@
 - 콜백 함수 설정하기
 
 ## 버전정보
-최신버전은 [v0.9.3](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
+최신버전은 [v0.9.4](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
 
 ## 지원정보
 아임포트 코르도바 플러그인은 안드로이드와 IOS에서 결제 및 휴대폰 본인인증 기능을 제공합니다. 결제시 지원하는 PG사와 결제수단에 대한 자세한 정보는 [지원정보](manuals/SUPPORT.md)를 참고하세요. 
@@ -66,9 +66,17 @@ IOS에서는 **외부 앱 이동 후 복귀를 위해 커스텀 앱 URL Scheme�
 ```javascript
 // js/payment.js
 document.getElementById('iamport-payment').addEventListener('click', function() {
-  var title = {
-    name: '아임포트 코르도바 테스트',                   // 안드로이드 액션바 타이틀
-    color: '#344e81'                              // 안드로이드 액션바 배경색
+  var titleOptions = {
+    text: '아임포트 코르도바 테스트',                   // 타이틀
+    textColor: '#ffffff'                          // 타이틀 색
+    textSize: '20',                               // 타이틀 크기
+    textAlignment: 'left',                        // 타이틀 정렬 유형
+    backgroundColor: '#344e81'                    // 타이틀 배경색
+    show: true,                                   // 타이틀 유무
+    leftButtonType: 'back'                        // 왼쪽 버튼 유형
+    leftButtonColor: '#ffffff',                   // 왼쪽 버튼 색
+    rightButtonType: 'close',                     // 오른쪽 버튼 유형
+    rightButtonColor: '#ffffff',                  // 오른쪽 버튼 색
   };
   var userCode = 'iamport';                       // 가맹점 식별코드
   var data = {
@@ -84,7 +92,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
   };
 
   var params = {
-    title: title,                                 // 안드로이드 액티비티 타이틀
+    titleOptions: titleOptions,                   // 타이틀 옵션
     userCode: userCode,                           // 가맹점 식별코드
     data: data,                                   // 결제 데이터
     callback: callback,                           // 콜백 함수
@@ -109,9 +117,17 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
 
 ```javascript
 document.getElementById('iamport-certification').addEventListener('click', function() {
-  var title = {
-    name: '아임포트 코르도바 테스트',                   // 안드로이드 액션바 타이틀
-    color: '#344e81'                              // 안드로이드 액션바 배경색
+  var titleOptions = {
+    text: '아임포트 코르도바 테스트',                   // 타이틀
+    textColor: '#ffffff'                          // 타이틀 색
+    textSize: '20',                               // 타이틀 크기
+    textAlignment: 'left',                        // 타이틀 정렬 유형
+    backgroundColor: '#344e81'                    // 타이틀 배경색
+    show: true,                                   // 타이틀 유무
+    leftButtonType: 'back'                        // 왼쪽 버튼 유형
+    leftButtonColor: '#ffffff',                   // 왼쪽 버튼 색
+    rightButtonType: 'close',                     // 오른쪽 버튼 유형
+    rightButtonColor: '#ffffff',                  // 오른쪽 버튼 색
   };
   var userCode = 'imp10391932';                   // 가맹점 식별코드
   var data = {
@@ -122,7 +138,7 @@ document.getElementById('iamport-certification').addEventListener('click', funct
     phone: '01012341234',                         // 전화번호
   };
   var params = {
-    title: title,                                 // 안들외드 액티비티 타이틀
+    titleOptions: titleOptions,                   // 타이틀 옵션
     userCode: userCode,                           // 가맹점 식별코드
     data: data,                                   // 본인인증 데이터
     callback: callback,                           // 콜백 함수

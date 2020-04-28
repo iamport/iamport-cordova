@@ -2,17 +2,28 @@ var exec = require('cordova/exec');
 var REDIRECT_URL = 'http://localhost/iamport';
 
 var iamport = function(type, params) {
-  var title = params.title;
+  var titleOptions = params.titleOptions;
   var userCode = params.userCode;
   var data = params.data;
   var callback = params.callback
 
   /* 타이틀 설정 */
   var titleData = {};
-  if (title) {
-    titleData.name = title.name ? title.name : '아임포트 코르도바 예제',
-    titleData.color = title.color ? title.color : '#344e81';
+  if (titleOptions) {
+    titleData.text = titleOptions.text || '아임포트 코르도바 예제',
+    titleData.show = [true, false].indexOf(titleOptions.show) === -1 ? 'true' : titleOptions.show.toString(),
+    titleData.textColor = titleOptions.textColor || '#ffffff';
+    titleData.textSize = titleOptions.textSize ? titleOptions.textSize.toString() : '20';
+    titleData.textAlignment = titleOptions.textAlignment || 'left';
+    titleData.backgroundColor = titleOptions.backgroundColor || '#344e81';
+    titleData.leftButtonType = titleOptions.leftButtonType || 'back';
+    titleData.leftButtonColor = titleOptions.leftButtonColor || titleData.textColor;
+    titleData.rightButtonType = titleOptions.rightButtonType || 'close';
+    titleData.rightButtonColor = titleOptions.rightButtonColor || titleData.textColor;
+  } else {
+    titleData.show = false;
   }
+
 
   /* 결제/본인인증 데이터 설정 */
   var iamportData = {
