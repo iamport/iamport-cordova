@@ -18,6 +18,7 @@ document.getElementById('iamport-payment').addEventListener('submit', function(e
 
   var titleOptions = {
     text: '아임포트 코르도바 테스트',
+    textAlignment: 'center',
     leftButtonType: 'close',
     rightButtonType: 'hide',
   };

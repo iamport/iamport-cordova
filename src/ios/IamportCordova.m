@@ -59,12 +59,13 @@
         titleView.textAlignment = [self getTextAlignment:textAlignment];
         titleView.textColor = [self colorFromHexString:textColor];
         titleView.backgroundColor = [UIColor clearColor];
+        if ([textAlignment isEqualToString:@"center"]) {
+            [titleView sizeToFit];
+        }
         navigationBar.topItem.titleView = titleView;
         
         navigationBar.translucent = NO;
         navigationBar.barTintColor = [self colorFromHexString:backgroundColor];
-        
-        [UIImage imageNamed:@"icon"];
         
         if (![leftButtonType isEqualToString:@"hide"]) {
             navigationBar.topItem.leftBarButtonItem = [self getBarButtonItem:leftButtonType];
