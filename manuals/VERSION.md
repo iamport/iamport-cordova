@@ -2,7 +2,10 @@
 
 아임포트 코르도바 플러그인 버전 정보 안내입니다.
 
-- [v0.9.3](https://github.com/iamport/iamport-cordova/tree/master)
+- [v0.9.4](https://github.com/iamport/iamport-cordova/tree/master)
+  - titleOptions 파라메터를 추가하였습니다.
+
+- [v0.9.3](https://github.com/iamport/iamport-cordova/tree/v0.9.3)
   - IOS에서 UIWebView를 WKWebView로 대체하였습니다.
 
 - [v0.9.2](https://github.com/iamport/iamport-cordova/tree/v0.9.2)
