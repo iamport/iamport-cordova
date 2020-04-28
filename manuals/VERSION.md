@@ -4,6 +4,8 @@
 
 - [v0.9.4](https://github.com/iamport/iamport-cordova/tree/master)
   - titleOptions 파라메터를 추가하였습니다.
+  - iamport javascript sdk 버전을 1.1.8로 업그레이드 했습니다.
+  - 나이스페이-실시간 계좌이체를 대비해 niceMobileV2의 기본값을 true로 설정했습니다.
 
 - [v0.9.3](https://github.com/iamport/iamport-cordova/tree/v0.9.3)
   - IOS에서 UIWebView를 WKWebView로 대체하였습니다.
