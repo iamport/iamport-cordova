@@ -39,9 +39,17 @@ $ yarn install-android
 ```javascript
 // js/payment.js
 document.getElementById('iamport-payment').addEventListener('click', function() {
-  var title = {
-    name: '아임포트 코르도바 테스트',                   // 안드로이드 액션바 타이틀
-    color: '#344e81'                              // 안드로이드 액션바 배경색
+  var titleOptions = {
+    text: '아임포트 코르도바 테스트',                   // 타이틀
+    textColor: '#ffffff'                          // 타이틀 색
+    textSize: '20',                               // 타이틀 크기
+    textAlignment: 'left',                        // 타이틀 정렬 유형
+    backgroundColor: '#344e81'                    // 타이틀 배경색
+    show: true,                                   // 타이틀 유무
+    leftButtonType: 'back'                        // 왼쪽 버튼 유형
+    leftButtonColor: '#ffffff',                   // 왼쪽 버튼 색
+    rightButtonType: 'close',                     // 오른쪽 버튼 유형
+    rightButtonColor: '#ffffff',                  // 오른쪽 버튼 색
   };
   var userCode = 'iamport';                       // 가맹점 식별코드
   var data = {
@@ -57,7 +65,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
   };
 
   var params = {
-    title: title,                                 // 안드로이드 액티비티 타이틀
+    titleOptions: titleOptions,                   // 타이틀 옵션
     userCode: userCode,                           // 가맹점 식별코드
     data: data,                                   // 결제 데이터
     callback: callback,                           // 콜백 함수
@@ -66,14 +74,22 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
 });
 ```
 
-| Prop      | Type          |  Description                                                | Required   |
-| --------- | ------------- | ----------------------------------------------------------- | ---------- |
-| title     | object        | 안드로이드 액티비티 액션바 옵션                                      | false      |
-| - name    | string        | 안드로이드 액티비티 액션바 타이틀                                     | false      |
-| - color   | string        | 안드로이드 액티비티 액션바 배경색                                     | false      |
-| userCode  | string        | 가맹점 식별코드                                                 | true       |
-| data      | object        | 결제에 필요한 정보 [자세히 보기](https://docs.iamport.kr/tech/imp) | true       |
-| callback  | function      | 결제 후 실행 될 함수 [자세히보기](#callback)                       | true       |
+| Prop               | Type     |  Description                                               | Required | Default          |
+| ------------------ | -------- | ---------------------------------------------------------- | -------- | ---------------- |
+| titleOptions       | object   | 타이틀 옵션                                                   | false    |                  |
+| - text             | string   | 타이틀                                                       | false    | 아임포트 코르도바 예제 |
+| - textColor        | string   | 타이틀 색                                                    | false     | #ffffff          |
+| - textSize         | string   | 타이틀 크기                                                   | false     | 20               |
+| - textAlignment    | string   | 타이틀 정렬 유형(`left`, `center`, `right`)                    | false     | left             |  
+| - backgroundColor  | string   | 타이틀 배경색                                                  | false    | #344e81           |
+| - show             | bool     | 타이틀 유무                                                   | false    | true               |
+| - leftButtonType   | string   | 왼쪽 버튼 유형(`back`, `hide`, `close`)                        | false    | back              |
+| - leftButtonColor  | string   | 왼쪽 버튼 색                                                  | false    | textColor         |
+| - rightButtonType  | string   | 오른쪽 버튼 유형(`hide`, `close`)                              | false    | close             |
+| - rightButtonColor | string   | 오른쪽 버튼 색                                                 | false    | textColor         |
+| userCode           | string   | 가맹점 식별코드                                                 | true     |                   |
+| data               | object   | 결제에 필요한 정보 [자세히 보기](https://docs.iamport.kr/tech/imp) | true     |                   |
+| callback           | function | 결제 후 실행 될 함수 [자세히보기](#callback)                       | true     |                   |
 
 
 ### 휴대폰 본인인증 코드 예시
@@ -91,9 +107,17 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
 
 ```javascript
 document.getElementById('iamport-certification').addEventListener('click', function() {
-  var title = {
-    name: '아임포트 코르도바 테스트',                   // 안드로이드 액션바 타이틀
-    color: '#344e81'                              // 안드로이드 액션바 배경색
+  var titleOptions = {
+    text: '아임포트 코르도바 테스트',                   // 타이틀
+    textColor: '#ffffff'                          // 타이틀 색
+    textSize: '20',                               // 타이틀 크기
+    textAlignment: 'left',                        // 타이틀 정렬 유형
+    backgroundColor: '#344e81'                    // 타이틀 배경색
+    show: true,                                   // 타이틀 유무
+    leftButtonType: 'back'                        // 왼쪽 버튼 유형
+    leftButtonColor: '#ffffff',                   // 왼쪽 버튼 색
+    rightButtonType: 'close',                     // 오른쪽 버튼 유형
+    rightButtonColor: '#ffffff',                  // 오른쪽 버튼 색
   };
   var userCode = 'imp10391932';                   // 가맹점 식별코드
   var data = {
@@ -104,7 +128,7 @@ document.getElementById('iamport-certification').addEventListener('click', funct
     phone: '01012341234',                         // 전화번호
   };
   var params = {
-    title: title,                                 // 안들외드 액티비티 타이틀
+    titleOptions: titleOptions,                   // 타이틀 옵션
     userCode: userCode,                           // 가맹점 식별코드
     data: data,                                   // 본인인증 데이터
     callback: callback,                           // 콜백 함수
@@ -116,7 +140,7 @@ document.getElementById('iamport-certification').addEventListener('click', funct
 
 | Prop          | Type          |  Description                       | Required   |
 | ------------- | ------------- | ---------------------------------- | ---------- |
-| title         | string        | 안드로이드 액티비티 타이틀                | false      |
+| titleOptions  | object        | 타이틀 옵션                           | false      |
 | userCode      | string        | 가맹점 식별코드                        | true       |
 | data          | object        | 본인인증에 필요한 정보 [자세히 보기](https://https://docs.iamport.kr/tech/mobile-authentication#call-authentication)      | true       |
 | - merchant_uid| string        | 가맹점 주문번호                        | false      |
