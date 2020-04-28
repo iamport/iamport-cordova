@@ -16,9 +16,11 @@ document.getElementById('iamport-payment').addEventListener('submit', function(e
   var buyer_tel = form['buyer_tel'].value;
   var buyer_email = form['buyer_email'].value;
 
-  var title = {
-    name: '아임포트 코르도바 테스트',
-    color: '#344e81',
+  var titleOptions = {
+    text: '아임포트 코르도바 테스트',
+    textAlignment: 'center',
+    leftButtonType: 'close',
+    rightButtonType: 'hide',
   };
   var userCode = getUserCode(pg);
   var data = {
@@ -34,7 +36,7 @@ document.getElementById('iamport-payment').addEventListener('submit', function(e
   };
 
   var params = {
-    title: title,
+    titleOptions: titleOptions,
     userCode: userCode,
     data: data,
     callback: callback,

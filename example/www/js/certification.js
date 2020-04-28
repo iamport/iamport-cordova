@@ -14,9 +14,12 @@ document.getElementById('iamport-certification').addEventListener('submit', func
   var phone = form['phone'].value;
   var min_age = form['min_age'].value;
 
-  var title = {
-    name: '아임포트 코르도바 테스트',
-    color: '#344e81',
+  var titleOptions = {
+    text: '아임포트 코르도바 테스트',
+    textColor: '#344e81',
+    backgroundColor: '#ffffff',
+    leftButtonType: 'hide',
+    rightButtonType: 'close',
   };
   var userCode = 'imp10391932';
   var data = {
@@ -28,7 +31,7 @@ document.getElementById('iamport-certification').addEventListener('submit', func
     min_age
   };
   var params = {
-    title: title,
+    titleOptions: titleOptions,
     userCode: userCode,
     data: data,
     callback: callback,
