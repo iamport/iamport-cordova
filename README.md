@@ -119,12 +119,12 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
 document.getElementById('iamport-certification').addEventListener('click', function() {
   var titleOptions = {
     text: '아임포트 코르도바 테스트',                   // 타이틀
-    textColor: '#ffffff'                          // 타이틀 색
+    textColor: '#ffffff',                          // 타이틀 색
     textSize: '20',                               // 타이틀 크기
     textAlignment: 'left',                        // 타이틀 정렬 유형
     backgroundColor: '#344e81'                    // 타이틀 배경색
     show: true,                                   // 타이틀 유무
-    leftButtonType: 'back'                        // 왼쪽 버튼 유형
+    leftButtonType: 'back',                        // 왼쪽 버튼 유형
     leftButtonColor: '#ffffff',                   // 왼쪽 버튼 색
     rightButtonType: 'close',                     // 오른쪽 버튼 유형
     rightButtonColor: '#ffffff',                  // 오른쪽 버튼 색
