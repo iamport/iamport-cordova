@@ -1,7 +1,7 @@
 
 # iamport-cordova
 
-아임포트 코르도바 플러그인입니다.
+아임포트 코르도바 플러그인입니다. 아이오닉 환경에서 아임포트 연동을 위한 가이드는 [여기](manuals/IONIC.md)를 참고해주세요.
 
 ## 목차
 - [버전정보](manuals/VERSION.md)
