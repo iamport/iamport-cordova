@@ -136,6 +136,7 @@ document.getElementById('iamport-certification').addEventListener('click', funct
     company: 'SIOT',                              // 회사명
     name: '홍길동',                                 // 이름
     phone: '01012341234',                         // 전화번호
+    is_iframe: false,                             // 본인인증 창 렌더링 방식
   };
   var params = {
     titleOptions: titleOptions,                   // 타이틀 옵션

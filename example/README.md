@@ -41,12 +41,12 @@ $ yarn install-android
 document.getElementById('iamport-payment').addEventListener('click', function() {
   var titleOptions = {
     text: '아임포트 코르도바 테스트',                   // 타이틀
-    textColor: '#ffffff'                          // 타이틀 색
+    textColor: '#ffffff',                         // 타이틀 색
     textSize: '20',                               // 타이틀 크기
     textAlignment: 'left',                        // 타이틀 정렬 유형
-    backgroundColor: '#344e81'                    // 타이틀 배경색
+    backgroundColor: '#344e81',                   // 타이틀 배경색
     show: true,                                   // 타이틀 유무
-    leftButtonType: 'back'                        // 왼쪽 버튼 유형
+    leftButtonType: 'back',                       // 왼쪽 버튼 유형
     leftButtonColor: '#ffffff',                   // 왼쪽 버튼 색
     rightButtonType: 'close',                     // 오른쪽 버튼 유형
     rightButtonColor: '#ffffff',                  // 오른쪽 버튼 색
@@ -109,12 +109,12 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
 document.getElementById('iamport-certification').addEventListener('click', function() {
   var titleOptions = {
     text: '아임포트 코르도바 테스트',                   // 타이틀
-    textColor: '#ffffff'                          // 타이틀 색
+    textColor: '#ffffff',                         // 타이틀 색
     textSize: '20',                               // 타이틀 크기
     textAlignment: 'left',                        // 타이틀 정렬 유형
-    backgroundColor: '#344e81'                    // 타이틀 배경색
+    backgroundColor: '#344e81',                   // 타이틀 배경색
     show: true,                                   // 타이틀 유무
-    leftButtonType: 'back'                        // 왼쪽 버튼 유형
+    leftButtonType: 'back',                       // 왼쪽 버튼 유형
     leftButtonColor: '#ffffff',                   // 왼쪽 버튼 색
     rightButtonType: 'close',                     // 오른쪽 버튼 유형
     rightButtonColor: '#ffffff',                  // 오른쪽 버튼 색
@@ -126,6 +126,7 @@ document.getElementById('iamport-certification').addEventListener('click', funct
     company: 'SIOT',                              // 회사명
     name: '홍길동',                                 // 이름
     phone: '01012341234',                         // 전화번호
+    is_iframe: false,                             // 본인인증창 렌더링 방식
   };
   var params = {
     titleOptions: titleOptions,                   // 타이틀 옵션
@@ -149,4 +150,15 @@ document.getElementById('iamport-certification').addEventListener('click', funct
 | - name        | string        | 본인인증 할 이름                        | false      |
 | - phone       | number        | 본인인증 할 전화번호                     | false      |
 | - min_age     | number        | 본인인증 허용 최소 연령                  | false      |
+| - is_iframe   | boolean       | 본인인증 창 렌더링 방식                  | false      |
 | callback      | function      | 본인인증 후 실행 될 함수                 | true       |
+
+#### is_iframe 파라메터
+본래 다날이 제공하는 휴대폰 본인인증 화면의 오른쪽 상단에는 X 버튼이 없었습니다. 따라서 사용자가 본인인증 도중에 취소를 하려면 명시적으로 하단의 취소 버튼을 눌렀어야 했습니다. 이에 대해 아임포트는 **Iframe 방식에 한해** 자체적으로 오른쪽 상단에 X 버튼을 렌더링하고 있습니다. 리디렉션 방식으로 본인인증 창을 띄우면, 말 그대로 PG사의 URL로 리디렉션되기 때문에 기술적으로 불가능하기 때문입니다.
+
+iamport-cordova 플러그인은 본인인증 창을 리디렉션 방식으로만 제공하는 대신 상단에 타이틀을 설정하고 뒤로가기/닫기 버튼을 렌더링 할 수 있도록 `titleOptions` 파라메터를 제공하고 있습니다. 하지만 이 `titleOptions` 파라메터를 사용하지 않는 사용자가 Iframe 방식으로 본인인증 창을 띄워 X 버튼을 렌더링 할 수 있도록 v0.9.7부터 `is_iframe` 파라메터를 제공하고 있으니 이용에 참고 부탁드립니다.
+
+| 값 | 본인인증 창 렌더링 방식 | 본인인증 창 내부 오른쪽 상단 X 버튼 렌더링 여부 |
+| - | - | - |
+| `true` | Iframe 방식 | O |
+| `false(기본값)` | 리디렉션 방식 | X |
