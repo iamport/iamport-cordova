@@ -13,6 +13,7 @@ document.getElementById('iamport-certification').addEventListener('submit', func
   var name = form['name'].value;
   var phone = form['phone'].value;
   var min_age = form['min_age'].value;
+  var is_iframe = form['is_iframe'].value;
 
   var titleOptions = {
     text: '아임포트 코르도바 테스트',
@@ -28,7 +29,8 @@ document.getElementById('iamport-certification').addEventListener('submit', func
     company,
     name,
     phone,
-    min_age
+    min_age,
+    is_iframe: is_iframe === 'true',
   };
   var params = {
     titleOptions: titleOptions,
