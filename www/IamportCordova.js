@@ -24,11 +24,16 @@ var iamport = function(type, params) {
     titleData.show = false;
   }
 
-
   /* 결제/본인인증 데이터 설정 */
+  var extraData = { niceMobileV2: true };
+  if (type === 'certification' && !data.is_iframe) {
+    // [v0.9.7] 본인인증은 X 버튼 렌더리을 위해 리디렉션 방식의 경우에만, m_redirect_url 적용
+    extraData.m_redirect_url = REDIRECT_URL;
+  }
+
   var iamportData = {
     userCode: userCode,
-    data: Object.assign({}, data, { m_redirect_url: REDIRECT_URL, niceMobileV2: true }),
+    data: Object.assign({}, data, extraData),
     triggerCallback: triggerCallback.toString(),
     redirectUrl: REDIRECT_URL,
   };
