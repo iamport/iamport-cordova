@@ -2,7 +2,7 @@
 
 아임포트 코르도바 플러그인 버전 정보 안내입니다.
 
-- [v0.9.7](https://github.com/iamport/iamport-cordova/tree/master)
+- [v0.9.8](https://github.com/iamport/iamport-cordova/tree/master)
   - [본인인증] 본인인증 창을 Iframe 방식으로 렌더링하기 위한 is_iframe 파라메터를 추가하였습니다.
 
 - [v0.9.6](https://github.com/iamport/iamport-cordova/tree/v0.9.6)
