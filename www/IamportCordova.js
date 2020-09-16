@@ -27,7 +27,7 @@ var iamport = function(type, params) {
   /* 결제/본인인증 데이터 설정 */
   var extraData = { niceMobileV2: true };
   if (type === 'payment' || !data.is_iframe) {
-    // [v0.9.7] 본인인증은 X 버튼 렌더리을 위해 리디렉션 방식의 경우에만, m_redirect_url 적용
+    // [v8] 본인인증은 X 버튼 렌더리을 위해 리디렉션 방식의 경우에만, m_redirect_url 적용
     extraData.m_redirect_url = REDIRECT_URL;
   }
 
