@@ -33,7 +33,8 @@
      delegate 메소드에 전달
      delegate 메소드에서 self.commandDelegate와 command.callbackId에 접근할 수 없는 점 방지
      */
-    iamportViewController.callbackId = command.callbackId;
+    _callbackId = command.callbackId;
+    iamportViewController.callbackId = _callbackId;
     iamportViewController.commandDelegate = self.commandDelegate;
     
     NSString *show = [titleOptions valueForKey:@"show"];
@@ -119,6 +120,10 @@
 - (void)onClose
 {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    
+    NSString * url = @"http://localhost/iamport?imp_success=false&error_code=IAMPORT_CORDOVA";
+    [self onOver:url callbackId:_callbackId commandDelegate:self.commandDelegate];
+    
 }
 
 - (void)setDelegate:(id<IamportDelegate>)delegate
