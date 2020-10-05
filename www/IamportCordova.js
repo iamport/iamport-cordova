@@ -55,7 +55,12 @@ var iamport = function(type, params) {
         var response = {
           imp_success: imp_success,
           imp_uid: parsedQuery.imp_uid,
-          merchant_uid: parsedQuery.merchant_uid,
+          /**
+           * [feature/android] X버튼 눌렀을때
+           * http://localhost/iamport?imp_success=false&error_code=IAMPORT_CORDOVA로 리디렉션되므로
+           * merchant_uid는 data 객체에서 참조한다
+           */
+          merchant_uid: parsedQuery.merchant_uid || data.merchant_uid,
           error_code: parsedQuery.error_code,
           error_msg: parsedQuery.error_msg,
         };

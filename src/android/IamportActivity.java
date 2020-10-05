@@ -208,18 +208,29 @@ public class IamportActivity extends Activity {
         Integer itemId = item.getItemId();
         switch (itemId) {
             case android.R.id.home: {
-                finish();
+                onCancelPayment();
                 break;
             }
             default: {
                 if (itemId.equals(actionBackItemId) || itemId.equals(actionCloseItemId)) {
-                    finish();
+                    onCancelPayment();
                 }
                 break;
             }
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onCancelPayment() {
+        Intent data = new Intent();
+        String url = "http://localhost/iamport?imp_success=false&error_code=IAMPORT_CORDOVA";
+
+        data.putExtra("url", url);
+
+        setResult(IamportCordova.REQUEST_CODE, data);
+
+        finish();
     }
 
     private int getLeftIconId(String buttonType) {
