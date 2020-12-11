@@ -9,10 +9,10 @@
     "sync": "npm run sync-ios && npm run sync-android",
     "sync-ios": "npm run uninstall-ios && npm run install-ios",
     "sync-android": "npm run uninstall-android && npm run install-android",
-    "install-ios": "cordova platform add ios && plugman install --platform ios --project platforms/ios --plugin ../../IamportCordova --link",
-    "install-android": "cordova platform add android && plugman install --platform android --project platforms/android --plugin ../../IamportCordova --link",
-    "uninstall-ios": "plugman uninstall --platform ios --project platforms/ios --plugin ../../IamportCordova --link && rm -rf platforms",
-    "uninstall-android": "plugman uninstall --platform android --project platforms/android --plugin ../../IamportCordova --link && rm -rf platforms"
+    "install-ios": "cordova platform add ios && plugman install --platform ios --project platforms/ios --plugin ../../iamport-cordova --link",
+    "install-android": "cordova platform add android && plugman install --platform android --project platforms/android --plugin ../../iamport-cordova --link",
+    "uninstall-ios": "plugman uninstall --platform ios --project platforms/ios --plugin ../../iamport-cordova --link && rm -rf platforms",
+    "uninstall-android": "plugman uninstall --platform android --project platforms/android --plugin ../../iamport-cordova --link && rm -rf platforms"
   },
   "keywords": [
     "ecosystem:cordova"
