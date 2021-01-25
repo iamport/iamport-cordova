@@ -9,7 +9,7 @@
 - 설치하기
 - IOS 설정하기
 - [예제](example/README.md)
-- 콜백 함수 설정하기
+- [콜백 함수 설정하기](manuals/CALLBACK.md)
 
 ## 버전정보
 최신버전은 [v0.9.8](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
