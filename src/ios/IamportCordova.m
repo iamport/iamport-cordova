@@ -76,6 +76,17 @@
             navigationBar.topItem.rightBarButtonItem.tintColor = [self colorFromHexString:rightButtonColor];
         }
 
+        // iOS15 부터 scrollEdgeAppearance 사용으로 변경되어 네이게이션 바가 투명 처리 됨
+        // In iOS 15, UIKit has extended the usage of the scrollEdgeAppearance, which by default produces a transparent background, to all navigation bars.
+        // https://stackoverflow.com/questions/69111478/ios-15-navigation-bar-transparent
+        if (@available(iOS 15.0, *)) {
+            UINavigationBarAppearance *navBarAppearance = [[UINavigationBarAppearance alloc] init];
+            [navBarAppearance configureWithOpaqueBackground];
+            navBarAppearance.backgroundColor = [self colorFromHexString:backgroundColor];
+            navigationBar.standardAppearance = navBarAppearance;
+            navigationBar.scrollEdgeAppearance = navBarAppearance;
+        }
+
         [self.viewController presentViewController:navigationController animated:YES completion:nil];
     } else {
         [self.viewController presentViewController:iamportViewController animated:YES completion:nil];

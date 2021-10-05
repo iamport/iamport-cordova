@@ -69,7 +69,16 @@ NSString *const BANKPAY = @"kftc-bankpay";
         @"wooripay",
         @"nhallonepayansimclick",
         @"hanawalletmembers",
-        @"shinsegaeeasypayment"
+        @"shinsegaeeasypayment",
+        @"chaipayment",
+        @"kb-auth",
+        @"hyundaicardappcardid",
+        @"com.wooricard.wcard",
+        @"lmslpay",
+        @"lguthepay-xpay",
+        @"liivbank",
+        @"supertoss",
+        @"newsmartpib"
     ];
     NSInteger schemeIndex = [schemes indexOfObject:urlString];
     
@@ -124,6 +133,33 @@ NSString *const BANKPAY = @"kftc-bankpay";
             break;
         case 16: // 신세계 SSGPAY
             marketUrlString = @"https://itunes.apple.com/app/id666237916";
+            break;
+        case 17: // 차이
+            marketUrlString = @"https://itunes.apple.com/app/id1459979272";
+            break;
+        case 18: // 국민
+            marketUrlString = @"https://itunes.apple.com/app/id695436326";
+            break;
+        case 19: // 현대카드
+            marketUrlString = @"https://itunes.apple.com/app/id702653088";
+            break;
+        case 20: // 우리won페이
+            marketUrlString = @"https://itunes.apple.com/app/id1499598869";
+            break;
+        case 21: // 롯데 L페이
+            marketUrlString = @"https://itunes.apple.com/app/id473250588";
+            break;
+        case 22: // 페이나우
+            marketUrlString = @"https://itunes.apple.com/app/id760098906";
+            break;
+        case 23: // Liiv 국민
+            marketUrlString = @"https://itunes.apple.com/app/id1126232922";
+            break;
+        case 24: // 토스
+            marketUrlString = @"https://itunes.apple.com/app/id839333328";
+            break;
+        case 35: // 우리WON뱅킹
+            marketUrlString = @"https://itunes.apple.com/app/id1470181651";
             break;
         default:
             marketUrlString = urlString;
