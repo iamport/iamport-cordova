@@ -13,25 +13,26 @@
     "install-android": "cordova platform add android && plugman install --platform android --project platforms/android --plugin ../../iamport-cordova --link",
     "uninstall-ios": "plugman uninstall --platform ios --project platforms/ios --plugin ../../iamport-cordova --link && rm -rf platforms",
     "uninstall-android": "plugman uninstall --platform android --project platforms/android --plugin ../../iamport-cordova --link && rm -rf platforms"
+    "install-ios": "cordova platform add ios && cordova plugin add --link ../",
+    "install-android": "cordova platform add android && cordova plugin add --link ../",
+    "uninstall-ios": "cordova platform rm ios && cordova plugin rm iamport-cordova",
+    "uninstall-android": "cordova platform rm android && cordova plugin rm iamport-cordova"
   },
   "keywords": [
     "ecosystem:cordova"
   ],
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
-  "dependencies": {},
   "devDependencies": {
-    "cordova-android": "^9.1.0",
+    "cordova": "^10.0.0",
+    "cordova-android": "^10.1.1",
     "cordova-ios": "^6.2.0",
-    "cordova-plugin-whitelist": "^1.3.4"
+    "npm": "^6.14.15"
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
     },
     "platforms": [
-      "ios",
-      "android"
     ]
   }
 }
