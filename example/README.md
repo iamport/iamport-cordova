@@ -10,11 +10,10 @@ $ cd ./iamport-cordova/example
 ```
 
 모바일 플랫폼을 추가합니다.
+(cordova platform android/ios 및 iamport-cordova 플러그인 설치)
 
 ```
-$ npm run install-android
-or
-$ npm run install-ios
+$ npm run install-iamport
 ```
 
 각 환경에 맞게 앱을 빌드합니다.
