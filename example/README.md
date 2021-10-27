@@ -14,6 +14,7 @@ $ cd ./iamport-cordova/example
 
 ```
 $ npm run install-iamport
+($ npm run uninstall-iamport 또한 제공)
 ```
 
 각 환경에 맞게 앱을 빌드합니다.

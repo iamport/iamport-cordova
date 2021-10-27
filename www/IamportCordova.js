@@ -1,5 +1,5 @@
 var exec = require('cordova/exec');
-var REDIRECT_URL = 'http://localhost/iamport';
+var REDIRECT_URL = 'http://detectchangingwebview/iamport/cor';
 
 var iamport = function(type, params) {
   var titleOptions = params.titleOptions;
@@ -105,7 +105,7 @@ var triggerCallback = function(response) {
   Object.keys(response).forEach(function(key) {
     query.push(key + '=' + decodeURIComponent(response[key]));
   });
-  location.href = 'http://localhost/iamport?' + query.join('&');
+  location.href = REDIRECT_URL+'?' + query.join('&');
 };
 
 var parseQuery = function(query) {
