@@ -1,5 +1,5 @@
 var exec = require('cordova/exec');
-var REDIRECT_URL = 'http://localhost/iamport';
+var REDIRECT_URL = 'http://detectchangingwebview/iamport/cor';
 
 var iamport = function(type, params) {
   var titleOptions = params.titleOptions;
@@ -27,7 +27,7 @@ var iamport = function(type, params) {
   /* 결제/본인인증 데이터 설정 */
   var extraData = { niceMobileV2: true };
   if (type === 'payment' || !data.is_iframe) {
-    // [v8] 본인인증은 X 버튼 렌더리을 위해 리디렉션 방식의 경우에만, m_redirect_url 적용
+    // [v0.9.8] 본인인증은 X 버튼 렌더리을 위해 리디렉션 방식의 경우에만, m_redirect_url 적용
     extraData.m_redirect_url = REDIRECT_URL;
   }
 
@@ -105,7 +105,7 @@ var triggerCallback = function(response) {
   Object.keys(response).forEach(function(key) {
     query.push(key + '=' + decodeURIComponent(response[key]));
   });
-  location.href = 'http://localhost/iamport?' + query.join('&');
+  location.href = REDIRECT_URL+'?' + query.join('&');
 };
 
 var parseQuery = function(query) {

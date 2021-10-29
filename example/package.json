@@ -6,33 +6,27 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sync": "npm run sync-ios && npm run sync-android",
-    "sync-ios": "npm run uninstall-ios && npm run install-ios",
-    "sync-android": "npm run uninstall-android && npm run install-android",
-    "install-ios": "cordova platform add ios && plugman install --platform ios --project platforms/ios --plugin ../../iamport-cordova --link",
-    "install-android": "cordova platform add android && plugman install --platform android --project platforms/android --plugin ../../iamport-cordova --link",
-    "uninstall-ios": "plugman uninstall --platform ios --project platforms/ios --plugin ../../iamport-cordova --link && rm -rf platforms",
-    "uninstall-android": "plugman uninstall --platform android --project platforms/android --plugin ../../iamport-cordova --link && rm -rf platforms"
+    "install-ios": "cordova platform add ios",
+    "install-android": "cordova platform add android@10.1.1",
+    "install-plugin": "cordova plugin add --link ../",
+    "uninstall-whitelist": "cordova plugin rm cordova-plugin-whitelist",
+    "uninstall-ios": "cordova platform rm ios",
+    "uninstall-android": "cordova platform rm android",
+    "uninstall-plugin": "cordova plugin rm iamport-cordova",
+    "install-iamport": "npm run install-android; npm run install-ios; npm run install-plugin",
+    "uninstall-iamport": "npm run uninstall-android; npm run uninstall-ios; npm run uninstall-plugin"
   },
   "keywords": [
     "ecosystem:cordova"
   ],
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
-  "dependencies": {
-    "cordova-android": "^8.1.0",
-    "cordova-ios": "^5.1.1"
-  },
   "devDependencies": {
-    "cordova-plugin-whitelist": "^1.3.4"
+    "cordova": "^10.0.0",
+    "npm": "^6.14.15"
   },
   "cordova": {
-    "plugins": {
-      "cordova-plugin-whitelist": {}
-    },
-    "platforms": [
-      "ios",
-      "android"
-    ]
+    "plugins": {},
+    "platforms": []
   }
 }

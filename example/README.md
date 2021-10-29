@@ -9,10 +9,12 @@ $ git clone https://github.com/iamport/iamport-cordova.git
 $ cd ./iamport-cordova/example
 ```
 
-안드로이드 플랫폼을 추가합니다.
+모바일 플랫폼을 추가합니다.
+(cordova platform android/ios 및 iamport-cordova 플러그인 설치)
 
 ```
-$ yarn install-android
+$ npm run install-iamport
+(재설치시 문제가 생길경우 먼저 $ npm run uninstall-iamport 실행)
 ```
 
 각 환경에 맞게 앱을 빌드합니다.
@@ -22,6 +24,11 @@ $ yarn install-android
 - 안드로이드 스튜디오에서 프로젝트(`iamport-cordova/example/platforms/android`)를 더블클릭해 오픈합니다.
 - 빌드 타깃을 선택하고 앱을 빌드합니다.
 
+### iOS
+- [Xcode를 설치](https://developer.apple.com/xcode/)합니다.
+- Xcode에서 프로젝트(`iamport-cordova/example/platforms/ios/IamportCordovaExample.xcworkspace`)를 오픈합니다.
+- [App Scheme 등록](https://github.com/iamport/iamport-react-native/blob/HEAD/manuals/SETTING.md#1-app-scheme-%EB%93%B1%EB%A1%9D)을 참고하시어 앱스킴을 "example" 으로 등록합니다.
+- 빌드 타깃을 선택하고 앱을 빌드합니다.
 
 ### 일반/정기결제 코드 예시
 ```html
