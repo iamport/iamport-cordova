@@ -132,7 +132,7 @@
 {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
     
-    NSString * url = @"http://localhost/iamport?imp_success=false&error_code=IAMPORT_CORDOVA";
+    NSString * url = @"http://detectchangingwebview/iamport/cor?imp_success=false&error_code=IAMPORT_CORDOVA";
     [self onOver:url callbackId:_callbackId commandDelegate:self.commandDelegate];
     
 }

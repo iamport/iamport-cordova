@@ -110,7 +110,9 @@ var triggerCallback = function(response) {
   Object.keys(response).forEach(function(key) {
     query.push(key + '=' + decodeURIComponent(response[key]));
   });
-  location.href = REDIRECT_URL+'?' + query.join('&');
+  // REDIRECT_URL 를 바로 찾을 수 없으므로 url 을 하드코딩
+  location.href = 'http://detectchangingwebview/iamport/cor?' + query.join('&');
+  
 };
 
 var parseQuery = function(query) {

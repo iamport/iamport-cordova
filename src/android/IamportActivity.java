@@ -224,7 +224,7 @@ public class IamportActivity extends Activity {
 
     private void onCancelPayment() {
         Intent data = new Intent();
-        String url = "http://localhost/iamport?imp_success=false&error_code=IAMPORT_CORDOVA";
+        String url = "http://detectchangingwebview/iamport/cor?imp_success=false&error_code=IAMPORT_CORDOVA";
 
         data.putExtra("url", url);
 
