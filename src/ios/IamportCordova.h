@@ -8,6 +8,8 @@
     id <IamportDelegate> _delegate;
 }
 
+@property (strong, nonatomic) NSString *callbackId;
+
 - (void)startActivity: (CDVInvokedUrlCommand*)command;
 - (UIBarButtonItem *)getBarButtonItem:(NSString *)buttonType;
 - (UIColor *)colorFromHexString:(NSString *)hexString;

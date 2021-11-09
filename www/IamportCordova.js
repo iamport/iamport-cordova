@@ -55,7 +55,12 @@ var iamport = function(type, params) {
         var response = {
           imp_success: imp_success,
           imp_uid: parsedQuery.imp_uid,
-          merchant_uid: parsedQuery.merchant_uid,
+          /**
+           * [feature/android] X버튼 눌렀을때
+           * http://localhost/iamport?imp_success=false&error_code=IAMPORT_CORDOVA로 리디렉션되므로
+           * merchant_uid는 data 객체에서 참조한다
+           */
+          merchant_uid: parsedQuery.merchant_uid || data.merchant_uid,
           error_code: parsedQuery.error_code,
           error_msg: parsedQuery.error_msg,
         };
@@ -105,7 +110,9 @@ var triggerCallback = function(response) {
   Object.keys(response).forEach(function(key) {
     query.push(key + '=' + decodeURIComponent(response[key]));
   });
-  location.href = REDIRECT_URL+'?' + query.join('&');
+  // REDIRECT_URL 를 바로 찾을 수 없으므로 url 을 하드코딩
+  location.href = 'http://detectchangingwebview/iamport/cor?' + query.join('&');
+  
 };
 
 var parseQuery = function(query) {
