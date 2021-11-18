@@ -2,7 +2,10 @@
 
 아임포트 코르도바 플러그인 버전 정보 안내입니다.
 
-- [v0.10.0](https://github.com/iamport/iamport-cordova/tree/master)
+- [v0.10.1](https://github.com/iamport/iamport-cordova/tree/master)
+  - fix : 플러그인 버전 설정을 수정하였습니다.
+
+- [v0.10.0](https://github.com/iamport/iamport-cordova/tree/v0.10.0)
   - feat : 결제창 상단 X 버튼을 통해 콜백을 받을 수 있습니다. (결제상태는 미결제로 유지)
   - [안드로이드] fix : v0.9.9에 있던 iframe 모드 콜백문제가 해결 되었습니다.
 
