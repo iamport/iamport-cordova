@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var decodedQuery = decodeURIComponent(query);
   var parsedQuery = JSON.parse(decodedQuery);
 
-  if (parsedQuery['imp_success'] == 'true') {
+  if (parsedQuery['error_code'] == null) {
     document.getElementById('success-container').style.display = 'flex'; 
   } else {
     document.getElementById('failure-container').style.display = 'flex';
