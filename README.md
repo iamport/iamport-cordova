@@ -1,7 +1,7 @@
 
 # iamport-cordova
 
-아임포트 코르도바 플러그인입니다. 아이오닉 환경에서 아임포트 연동을 위한 가이드는 [여기](manuals/IONIC.md)를 참고해주세요.
+포트원 코르도바 플러그인입니다. 아이오닉 환경에서 아임포트 연동을 위한 가이드는 [여기](manuals/IONIC.md)를 참고해주세요.
 
 ## 목차
 - [버전정보](manuals/VERSION.md)
@@ -12,7 +12,7 @@
 - [콜백 함수 설정하기](manuals/CALLBACK.md)
 
 ## 버전정보
-최신버전은 [v0.10.1](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
+최신버전은 [v0.10.2](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
 
 ## 지원정보
 아임포트 코르도바 플러그인은 안드로이드와 IOS에서 결제 및 휴대폰 본인인증 기능을 제공합니다. 결제시 지원하는 PG사와 결제수단에 대한 자세한 정보는 [지원정보](manuals/SUPPORT.md)를 참고하세요. 
@@ -48,7 +48,7 @@ IOS에서는 **외부 앱 이동 후 복귀를 위해 커스텀 앱 URL Scheme�
 ```
 
 ## 예제
-아임포트 코르도바 플러그인을 사용해 아래와 같이 일반/정기결제 및 휴대폰 본인인증 기능을 구현할 수 있습니다. 필요한 파라미터는 [예제](example/README.md)를 참고하세요.
+포트원 코르도바 플러그인을 사용해 아래와 같이 일반/정기결제 및 휴대폰 본인인증 기능을 구현할 수 있습니다. 필요한 파라미터는 [예제](example/README.md)를 참고하세요.
 
 #### 일반/정기결제 예제
 ```html
