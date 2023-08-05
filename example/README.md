@@ -47,7 +47,7 @@ $ npm run install-iamport
 // js/payment.js
 document.getElementById('iamport-payment').addEventListener('click', function() {
   var titleOptions = {
-    text: '아임포트 코르도바 테스트',                   // 타이틀
+    text: '포트원 코르도바 테스트',                    // 타이틀
     textColor: '#ffffff',                         // 타이틀 색
     textSize: '20',                               // 타이틀 크기
     textAlignment: 'left',                        // 타이틀 정렬 유형
@@ -62,7 +62,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
   var data = {
     pg: 'html5_inicis',                           // PG사
     pay_method: 'card',                           // 결제수단
-    name: '아임포트 코르도바 테스트',                   // 주문명
+    name: '포트원 코르도바 테스트',                    // 주문명
     merchant_uid: 'mid_' + new Date().getTime(),  // 주문번호
     amount: '39000',                              // 결제금액
     buyer_name: '홍길동',                           // 구매자 이름
@@ -84,7 +84,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
 | Prop               | Type     |  Description                                               | Required | Default          |
 | ------------------ | -------- | ---------------------------------------------------------- | -------- | ---------------- |
 | titleOptions       | object   | 타이틀 옵션                                                   | false    |                  |
-| - text             | string   | 타이틀                                                       | false    | 아임포트 코르도바 예제 |
+| - text             | string   | 타이틀                                                       | false    | 포틍원 코르도바 예제 |
 | - textColor        | string   | 타이틀 색                                                    | false     | #ffffff          |
 | - textSize         | string   | 타이틀 크기                                                   | false     | 20               |
 | - textAlignment    | string   | 타이틀 정렬 유형(`left`, `center`, `right`)                    | false     | left             |  
@@ -115,7 +115,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
 ```javascript
 document.getElementById('iamport-certification').addEventListener('click', function() {
   var titleOptions = {
-    text: '아임포트 코르도바 테스트',                   // 타이틀
+    text: '포트원 코르도바 테스트',                    // 타이틀
     textColor: '#ffffff',                         // 타이틀 색
     textSize: '20',                               // 타이틀 크기
     textAlignment: 'left',                        // 타이틀 정렬 유형

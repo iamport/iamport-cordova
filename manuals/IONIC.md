@@ -1,9 +1,9 @@
-# 아이오닉 환경에서 아임포트 연동하기
+# 아이오닉 환경에서 포트원 연동하기
 
-아이오닉 환경에서 아임포트 코르도바 플러그인을 사용해 일반/정기결제 및 본인인증을 연동하는 방법을 안내합니다.
+아이오닉 환경에서 포트원 코르도바 플러그인을 사용해 일반/정기결제 및 본인인증을 연동하는 방법을 안내합니다.
 
 ## 설치하기
-아래 명령어를 통해 아임포트 코르도바 플러그인을 귀하의 아이오닉 프로젝트에 추가할 수 있습니다.
+아래 명령어를 통해 포트원 코르도바 플러그인을 귀하의 아이오닉 프로젝트에 추가할 수 있습니다.
 
 ### 1. ionic-native 설치
 ```
@@ -15,7 +15,7 @@ $ npm install @ionic-native/core --save // @ionic-native/core v5.22.0 이상
 $ npm install @ionic-native/iamport-cordova --save
 ```
 
-### 3. 아임포트 코르도바 플러그인 설치
+### 3. 포트원 코르도바 플러그인 설치
 ```
 $ cordova plugin add iamport-cordova
 ```
@@ -44,7 +44,7 @@ IOS에서는 **외부 앱 이동 후 복귀를 위해 커스텀 앱 URL Scheme�
 ```
 
 ## 예제
-아임포트 코르도바 플러그인을 사용해 아래와 같이 일반/정기결제 및 본인인증 기능을 구현할 수 있습니다. 필요한 파라미터는 [예제](example/README.md)를 참고하세요.
+포트원 코르도바 플러그인을 사용해 아래와 같이 일반/정기결제 및 본인인증 기능을 구현할 수 있습니다. 필요한 파라미터는 [예제](example/README.md)를 참고하세요.
 
 ### 일반/정기결제 예제
 ```html
@@ -59,7 +59,7 @@ IOS에서는 **외부 앱 이동 후 복귀를 위해 커스텀 앱 URL Scheme�
 ```javascript
 // payment.page.ts
 import { Component } from '@angular/core';
-// 2. 아임포트 코르도바 플러그인 임포트
+// 2. 포트원 코르도바 플러그인 임포트
 import { IamportCordova } from '@ionic-native/iamport-cordova';
 
 @Component({
@@ -77,7 +77,7 @@ export class PaymentPage {
     var data = {
       pg: 'html5_inicis',                           // PG사
       pay_method: 'card',                           // 결제수단
-      name: '아임포트 코르도바 테스트',                   // 주문명
+      name: '포트원 코르도바 테스트',                   // 주문명
       merchant_uid: 'mid_' + new Date().getTime(),  // 주문번호
       amount: '1000',                               // 결제금액
       buyer_name: '홍길동',                           // 구매자 이름
@@ -87,7 +87,7 @@ export class PaymentPage {
       ...
     };
     var titleOptions = {
-      text: '아임포트 코르도바 테스트',                   // 타이틀
+      text: '포트원 코르도바 테스트',                   // 타이틀
       textColor: '#ffffff',                         // 타이틀 색
       textSize: '20',                               // 타이틀 크기
       textAlignment: 'left',                        // 타이틀 정렬 유형
@@ -128,7 +128,7 @@ export class PaymentPage {
 ```javascript
 // certification.page.ts
 import { Component } from '@angular/core';
-// 2. 아임포트 코르도바 플러그인 임포트
+// 2. 포트원 코르도바 플러그인 임포트
 import { IamportCordova } from '@ionic-native/iamport-cordova';
 
 @Component({
@@ -151,7 +151,7 @@ export class CertificationPage {
       phone: '01012341234',                         // 전화번호
     };
     var titleOptions = {
-      text: '아임포트 코르도바 테스트',                   // 타이틀
+      text: '포트원 코르도바 테스트',                   // 타이틀
       textColor: '#ffffff',                         // 타이틀 색
       textSize: '20',                               // 타이틀 크기
       textAlignment: 'left',                        // 타이틀 정렬 유형
@@ -163,7 +163,7 @@ export class CertificationPage {
       rightButtonColor: '#ffffff',                  // 오른쪽 버튼 색
     };
 
-    // 4. 아임포트 코르도바 파라미터 정의
+    // 4. 포트원 코르도바 파라미터 정의
     var params = {
       userCode: userCode,                           // 4-1. 가맹점 식별코드 정의
       data: data,                                   // 4-2. 결제 데이터 정의

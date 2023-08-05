@@ -10,7 +10,7 @@ var iamport = function(type, params) {
   /* 타이틀 설정 */
   var titleData = {};
   if (titleOptions) {
-    titleData.text = titleOptions.text || '아임포트 코르도바 예제',
+    titleData.text = titleOptions.text || '포트원 코르도바 예제',
     titleData.show = [true, false].indexOf(titleOptions.show) === -1 ? 'true' : titleOptions.show.toString(),
     titleData.textColor = titleOptions.textColor || '#ffffff';
     titleData.textSize = titleOptions.textSize ? titleOptions.textSize.toString() : '20';

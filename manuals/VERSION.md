@@ -1,6 +1,10 @@
 # 버전정보
 
-아임포트 코르도바 플러그인 버전 정보 안내입니다.
+포트원 코르도바 플러그인 버전 정보 안내입니다.
+
+- [v0.10.2](https://github.com/iamport/iamport-cordova/tree/master)
+  - portone javascript sdk 버전을 1.3.0로 업그레이드 했습니다.
+  - 지원가능 PG사에 (신)토스페이먼츠, KSNET PG가 추가 되었습니다.
 
 - [v0.10.1](https://github.com/iamport/iamport-cordova/tree/master)
   - fix : 플러그인 버전 설정을 수정하였습니다.
