@@ -16,7 +16,7 @@ document.getElementById('iamport-certification').addEventListener('submit', func
   var is_iframe = form['is_iframe'].value;
 
   var titleOptions = {
-    text: '아임포트 코르도바 테스트',
+    text: '포트원 코르도바 테스트',
     textColor: '#344e81',
     backgroundColor: '#ffffff',
     leftButtonType: 'hide',

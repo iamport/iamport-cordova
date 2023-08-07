@@ -17,7 +17,7 @@ document.getElementById('iamport-payment').addEventListener('submit', function(e
   var buyer_email = form['buyer_email'].value;
 
   var titleOptions = {
-    text: '아임포트 코르도바 테스트',
+    text: '포트원 코르도바 테스트',
     textAlignment: 'center',
     leftButtonType: 'close',
     rightButtonType: 'hide',
