@@ -84,7 +84,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
 | Prop               | Type     |  Description                                               | Required | Default          |
 | ------------------ | -------- | ---------------------------------------------------------- | -------- | ---------------- |
 | titleOptions       | object   | 타이틀 옵션                                                   | false    |                  |
-| - text             | string   | 타이틀                                                       | false    | 포틍원 코르도바 예제 |
+| - text             | string   | 타이틀                                                       | false    | 포트원 코르도바 예제 |
 | - textColor        | string   | 타이틀 색                                                    | false     | #ffffff          |
 | - textSize         | string   | 타이틀 크기                                                   | false     | 20               |
 | - textAlignment    | string   | 타이틀 정렬 유형(`left`, `center`, `right`)                    | false     | left             |  
