@@ -6,7 +6,7 @@
   - portone javascript sdk 버전을 1.3.0로 업그레이드 했습니다.
   - 지원가능 PG사에 (신)토스페이먼츠, KSNET PG가 추가 되었습니다.
 
-- [v0.10.1](https://github.com/iamport/iamport-cordova/tree/master)
+- [v0.10.1](https://github.com/iamport/iamport-cordova/tree/v0.10.1)
   - fix : 플러그인 버전 설정을 수정하였습니다.
 
 - [v0.10.0](https://github.com/iamport/iamport-cordova/tree/v0.10.0)

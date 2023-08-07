@@ -1,7 +1,7 @@
 
 # iamport-cordova
 
-아임포트 코르도바 플러그인입니다. 아이오닉 환경에서 아임포트 연동을 위한 가이드는 [여기](manuals/IONIC.md)를 참고해주세요.
+포트원 코르도바 플러그인입니다. 아이오닉 환경에서 포트원 연동을 위한 가이드는 [여기](manuals/IONIC.md)를 참고해주세요.
 
 ## 목차
 - [버전정보](manuals/VERSION.md)
@@ -12,13 +12,13 @@
 - [콜백 함수 설정하기](manuals/CALLBACK.md)
 
 ## 버전정보
-최신버전은 [v0.10.1](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
+최신버전은 [v0.10.2](https://github.com/iamport/iamport-cordova/tree/master)입니다. 버전 히스토리는 [버전정보](manuals/VERSION.md)를 참고하세요.
 
 ## 지원정보
-아임포트 코르도바 플러그인은 안드로이드와 IOS에서 결제 및 휴대폰 본인인증 기능을 제공합니다. 결제시 지원하는 PG사와 결제수단에 대한 자세한 정보는 [지원정보](manuals/SUPPORT.md)를 참고하세요. 
+포트원 코르도바 플러그인은 안드로이드와 IOS에서 결제 및 휴대폰 본인인증 기능을 제공합니다. 결제시 지원하는 PG사와 결제수단에 대한 자세한 정보는 [지원정보](manuals/SUPPORT.md)를 참고하세요. 
 
 ## 설치하기
-아래 명령어를 통해 아임포트 코르도바 플러그인을 귀하의 코르도바 프로젝트에 추가할 수 있습니다.
+아래 명령어를 통해 포트원 코르도바 플러그인을 귀하의 코르도바 프로젝트에 추가할 수 있습니다.
 
 ```
 $ cordova plugin add iamport-cordova
@@ -48,7 +48,7 @@ IOS에서는 **외부 앱 이동 후 복귀를 위해 커스텀 앱 URL Scheme�
 ```
 
 ## 예제
-아임포트 코르도바 플러그인을 사용해 아래와 같이 일반/정기결제 및 휴대폰 본인인증 기능을 구현할 수 있습니다. 필요한 파라미터는 [예제](example/README.md)를 참고하세요.
+포트원 코르도바 플러그인을 사용해 아래와 같이 일반/정기결제 및 휴대폰 본인인증 기능을 구현할 수 있습니다. 필요한 파라미터는 [예제](example/README.md)를 참고하세요.
 
 #### 일반/정기결제 예제
 ```html
@@ -67,7 +67,7 @@ IOS에서는 **외부 앱 이동 후 복귀를 위해 커스텀 앱 URL Scheme�
 // js/payment.js
 document.getElementById('iamport-payment').addEventListener('click', function() {
   var titleOptions = {
-    text: '아임포트 코르도바 테스트',                   // 타이틀
+    text: '포트원 코르도바 테스트',                   // 타이틀
     textColor: '#ffffff',                         // 타이틀 색
     textSize: '20',                               // 타이틀 크기
     textAlignment: 'left',                        // 타이틀 정렬 유형
@@ -82,7 +82,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
   var data = {
     pg: 'html5_inicis',                           // PG사
     pay_method: 'card',                           // 결제수단
-    name: '아임포트 코르도바 테스트',                   // 주문명
+    name: '포트원 코르도바 테스트',                   // 주문명
     merchant_uid: 'mid_' + new Date().getTime(),  // 주문번호
     amount: '39000',                              // 결제금액
     buyer_name: '홍길동',                           // 구매자 이름
@@ -118,7 +118,7 @@ document.getElementById('iamport-payment').addEventListener('click', function() 
 ```javascript
 document.getElementById('iamport-certification').addEventListener('click', function() {
   var titleOptions = {
-    text: '아임포트 코르도바 테스트',                   // 타이틀
+    text: '포트원 코르도바 테스트',                   // 타이틀
     textColor: '#ffffff',                         // 타이틀 색
     textSize: '20',                               // 타이틀 크기
     textAlignment: 'left',                        // 타이틀 정렬 유형

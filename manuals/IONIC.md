@@ -99,7 +99,7 @@ export class PaymentPage {
       rightButtonColor: '#ffffff',                  // 오른쪽 버튼 색
     };
 
-    // 4. 아임포트 코르도바 파라미터 정의
+    // 4. 포트원 코르도바 파라미터 정의
     var params = {
       userCode: userCode,                           // 4-1. 가맹점 식별코드 정의
       data: data,                                   // 4-2. 결제 데이터 정의

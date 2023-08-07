@@ -1,6 +1,6 @@
 
 # 콜백 함수 설정하기
-아임포트 코르도바 모듈 콜백 함수 설정을 위한 안내입니다.
+포트원 코르도바 모듈 콜백 함수 설정을 위한 안내입니다.
 
 콜백 함수는 필수입력 필드로, 결제/본인인증 완료 후 페이지 이동을 위해 아래와 같이 로직을 작성해야합니다.
 
@@ -15,11 +15,11 @@ function callback(response) {
 ```
 
 ### 결과에 따라 로직 작성하기
-콜백 함수의 첫번째 인자(response)는 결제/본인인증 결과를 담고 있는 오브젝트로 아래와 같이 구성되어 있습니다. 자세한 내용은 아임포트 공식 문서 [IMP.request_pay - param, rsp 객체 - Callback 함수의 rsp 객제](https://docs.iamport.kr/tech/imp#callback)를 참고해주세요.
+콜백 함수의 첫번째 인자(response)는 결제/본인인증 결과를 담고 있는 오브젝트로 아래와 같이 구성되어 있습니다. 자세한 내용은 포트원 공식 문서 [IMP.request_pay - param, rsp 객체 - Callback 함수의 rsp 객제](https://docs.iamport.kr/tech/imp#callback)를 참고해주세요.
 
 | key           |  Description               | 
 | ------------- | -------------------------- | 
-| imp_uid       | 아임포트 번호                  |
+| imp_uid       | 포트원 거래 고유 번호포트원 번호   |
 | merchant_uid  | 주문번호                      |
 | error_code    | 실패한 경우, 에러 코드           |
 | error_msg     | 실패한 경우, 에러 메시지         |

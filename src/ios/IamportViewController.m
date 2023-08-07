@@ -129,7 +129,7 @@
 - (BOOL)isOver:(NSString *) url
 {
     /*
-     웹뷰가 아임포트가 지정한 임의의 m_redirect_url과 같으면 결제 종료(완료 또는 실패)로 판단
+     웹뷰가 포트원가 지정한 임의의 m_redirect_url과 같으면 결제 종료(완료 또는 실패)로 판단
      */
     NSString* redirectUrl = [_params valueForKey:@"redirectUrl"];
     return [url hasPrefix:redirectUrl];
