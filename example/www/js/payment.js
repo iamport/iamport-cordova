@@ -32,7 +32,7 @@ document.getElementById('iamport-payment').addEventListener('submit', function(e
     buyer_name: buyer_name,
     buyer_tel: buyer_tel,
     buyer_email: buyer_email,
-    app_scheme: 'example',
+    app_scheme: 'example://',
   };
 
   var params = {
