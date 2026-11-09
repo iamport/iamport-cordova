@@ -1,5 +1,14 @@
 
 # 콜백 함수 설정하기
+
+> [!WARNING]
+> **이 저장소는 더 이상 유지보수되지 않습니다 (Deprecated).**
+>
+> 아래 포트원 공식 문서를 참고해 주세요.
+>
+> - **포트원 V2 (권장)**: [모바일 SDK 레퍼런스](https://developers.portone.io/sdk/ko/v2-mobile-sdk/readme?v=v2) · [결제 연동 시작하기](https://developers.portone.io/opi/ko/integration/start/v2/readme?v=v2)
+> - **포트원 V1 (기존 아임포트)**: [모바일 SDK 레퍼런스](https://developers.portone.io/sdk/ko/v1-mobile-sdk/readme?v=v1)
+
 포트원 코르도바 모듈 콜백 함수 설정을 위한 안내입니다.
 
 콜백 함수는 필수입력 필드로, 결제/본인인증 완료 후 페이지 이동을 위해 아래와 같이 로직을 작성해야합니다.
