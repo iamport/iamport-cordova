@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-ios": "cordova platform add ios",
-    "install-android": "cordova platform add android@10.1.1",
-    "install-plugin": "cordova plugin add --link ../",
+    "install-android": "cordova platform add android",
+    "install-plugin": "cordova plugin add iamport-cordova --link ../",
     "uninstall-whitelist": "cordova plugin rm cordova-plugin-whitelist",
     "uninstall-ios": "cordova platform rm ios",
     "uninstall-android": "cordova platform rm android",
@@ -22,8 +22,8 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova": "^10.0.0",
-    "npm": "^6.14.15"
+    "cordova": "^12.0.0",
+    "npm": "^10.2.1"
   },
   "cordova": {
     "plugins": {},
